@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>学历数据分析</title>
+
+</head>
+<body>
+<script src="../../resource/stats/scripts/jquery-1.12.4.min.js"></script>
+<script src="../../resource/stats/scripts/statsCommon.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var url = StatsCommon.getQueryString('url');
+        if(false != url){
+//            StatsCommon.YUNYAN.access_token(function (res) {
+//                if (res) {
+//                    console.log(res.access_token);
+//                    window.location.href = 'https://tongji.webtrn.cn' + url + '?token=' + res.access_token;
+//                }
+//            });
+            window.location.href = 'https://tongji.webtrn.cn' + url
+        }
+    });
+</script>
+</body>
+</html>

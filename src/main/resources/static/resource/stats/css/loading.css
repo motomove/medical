@@ -1,0 +1,20 @@
+/* 导入中、加载中，请稍后...深灰小窗 */
+.loading { display:inline-block; *width:30%;}
+.ld_top,
+.ld_bot { position:relative; overflow:hidden; height:10px;}
+.ld_corner { position:absolute; top:0; width:10px; height:10px; background:url(../images/loading/loading_corner.png) no-repeat;}
+.ld_bar { height:10px; margin:0 10px; background:url(../images/loading/loading_sides1.png) repeat-x;}
+
+.ld_top_l { left:0; background-position:0 0;}
+.ld_top_r { right:0; background-position:-10px 0;}
+.ld_top_m { background-position:0 0;}
+
+.ld_bot_l { left:0; background-position:0 -10px;}
+.ld_bot_r { right:0; background-position:-10px -10px;}
+.ld_bot_m { background-position:0 -10px;}
+
+.ld_mid { clear:both; overflow:hidden; background:url(../images/loading/loading_sides2.png) left 0 repeat-y;}
+.ld_mid_in { background:url(../images/loading/loading_sides2.png) right 0 repeat-y;}
+.ld_mid_cont { margin:0 10px; padding:5px; *margin:-12px 10px 0 10px; *padding-top:12px; background:#f3f3f3; text-align: center;}
+
+.ld_txt { padding-top:5px; font-family:"Microsoft YaHei"; font-size:14px; color:#666;}

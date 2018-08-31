@@ -1,0 +1,218 @@
+/*! jQuery UI - v1.10.4 - 2014-04-02
+* http://jqueryui.com
+* Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
+
+.ui-datepicker { /* 大外框 */
+	width: 17em;
+	padding: .2em .2em 0;
+	display: none;
+	-webkit-box-shadow:0 2px 10px rgba(0,0,0,.05);
+	-moz-box-shadow:0 2px 10px rgba(0,0,0,.05);
+	box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+.ui-datepicker .ui-datepicker-header { /* 头部条 */
+	position: relative;
+	padding: .2em 0;
+	background:none;
+	border:none;
+}
+
+/**
+ * PREV and NEXT
+ * ------------------------------------------------------------
+ * 1. 默认背景色
+ * 2. 滑过背景色
+ */
+.ui-datepicker .ui-datepicker-prev, 
+.ui-datepicker .ui-datepicker-next { /* 月份切换箭头外框 */
+	position: absolute;
+	top: 6px;
+	width: 1.8em;
+	height: 1.8em;
+	background-color:#ddd; /* 1 */
+	cursor:pointer;
+}
+.ui-datepicker .ui-datepicker-prev { /* 月份切换箭头外框-左 */
+	left: 2px
+}
+.ui-datepicker .ui-datepicker-next { /* 月份切换箭头外框-右 */
+	right: 2px
+}
+.ui-datepicker .ui-datepicker-prev span, 
+.ui-datepicker .ui-datepicker-next span { /* 月份切换箭头 */
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -8px;
+	top: 50%;
+	margin-top: -8px;
+	background-image:url(images/datePickArr.png);
+	background-repeat:no-repeat;
+}
+.ui-datepicker .ui-datepicker-prev span { /* 月份切换箭头-左 */
+	background-position:0 0;
+}
+.ui-datepicker .ui-datepicker-next span { /* 月份切换箭头-右 */
+	background-position:-16px 0;
+}
+
+.ui-datepicker .ui-datepicker-prev-hover, 
+.ui-datepicker .ui-datepicker-next-hover { /* 箭头外框滑过样式 */
+	border:none;
+	background-color:#157ed9; /* 2 */
+}
+.ui-datepicker .ui-datepicker-prev-hover span { /* 箭头滑过样式-左 */
+	background-position:0 -16px;
+}
+.ui-datepicker .ui-datepicker-next-hover span { /* 箭头滑过样式-右 */
+	background-position:-16px -16px;
+}
+
+
+/**
+ * Numbers
+ * ------------------------------------------------------------
+ * 1. 年份颜色
+ * 2. 周颜色
+ * 3. 日颜色
+ */
+.ui-datepicker .ui-datepicker-title { /* 年份样式 */
+	margin: 0 2.3em;
+	line-height: 1.8em;
+	text-align: center;
+	color:#157ed9;
+}
+.ui-datepicker .ui-datepicker-title select { /* 不知道干嘛用的 */
+	font-size: 1em;
+	margin: 1px 0;
+}
+
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year {
+	width: 49%;
+	background:none;
+}
+.ui-datepicker table { /* 周+日 表格 */
+	width: 100%;
+	font-size: .9em;
+	border-collapse: collapse;
+	margin: 0 0 .4em;
+}
+.ui-datepicker th { /* 周表头 */
+	padding: .7em .3em;
+	text-align: center;
+	font-weight: bold;
+	color:#444;
+}
+.ui-datepicker td { /* 日-小格间距 */
+	padding: 1px;
+}
+.ui-datepicker td span, 
+.ui-datepicker td a {
+	display: block;
+	padding: .2em;
+	text-align: center;
+	text-decoration: none;
+}
+
+.ui-datepicker .ui-state-default { /* 日 */
+	border:none;
+	background:#fafafa;
+	color:#888;
+}
+.ui-datepicker .ui-state-highlight { /* 当前日 */
+	border:none;
+	background:#157ed9;
+	color:#fff;
+}
+
+
+
+/**
+ * 以下不知干嘛用的，先保留
+ * ------------------------------------------------------------
+ */
+.ui-datepicker .ui-datepicker-buttonpane {
+	background-image: none;
+	margin: .7em 0 0 0;
+	padding: 0 .2em;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+	float: right;
+	margin: .5em .2em .4em;
+	cursor: pointer;
+	padding: .2em .6em .3em .6em;
+	width: auto;
+	overflow: visible;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: left;
+}
+.ui-datepicker.ui-datepicker-multi {
+	width: auto
+}
+.ui-datepicker-multi .ui-datepicker-group {
+	float: left
+}
+.ui-datepicker-multi .ui-datepicker-group table {
+	width: 95%;
+	margin: 0 auto .4em
+}
+.ui-datepicker-multi-2 .ui-datepicker-group {
+	width: 50%
+}
+.ui-datepicker-multi-3 .ui-datepicker-group {
+	width: 33.3%
+}
+.ui-datepicker-multi-4 .ui-datepicker-group {
+	width: 25%
+}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header, 
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+	border-left-width: 0
+}
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+	clear: left
+}
+.ui-datepicker-row-break {
+	clear: both;
+	width: 100%;
+	font-size: 0
+}
+.ui-datepicker-rtl {
+	direction: rtl
+}
+.ui-datepicker-rtl .ui-datepicker-prev {
+	right: 2px;
+	left: auto
+}
+.ui-datepicker-rtl .ui-datepicker-next {
+	left: 2px;
+	right: auto
+}
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+	right: 1px;
+	left: auto
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+	left: 1px;
+	right: auto
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+	clear: right
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+	float: left
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current, 
+.ui-datepicker-rtl .ui-datepicker-group {
+	float: right
+}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header, 
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+	border-right-width: 0;
+	border-left-width: 1px
+}

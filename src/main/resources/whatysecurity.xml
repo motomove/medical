@@ -1,0 +1,37 @@
+<root>
+    <!-- 不支持正则表达式 -->
+    <exclusion>
+        <url value="/exclusion/test.jsp"/>
+        <url value="/exclusion/test1.jsp"/>
+    </exclusion>
+    <filters>
+        <!-- url支持正则表达式 -->
+        <filter name="xss">
+            <!-- 0 表示不限制  1表示html限制，url支持正则表达式 不填写parm为全部参数，参数可以,号隔开-->
+            <item url="^/standard/blank_\w+.action" param="a,b" type="0"/>
+            <item url="^/examples/upload_upload.action" param="note" type="1"/>
+
+            <!--发布动态-->
+            <item url="^/snsUserDynamic/publish" param="content" type="0"/>
+            <!--自我评价-->
+            <item url="^/ws/student/user/info/update" param="value" type="0"/>
+            <!--发布班级公告-->
+            <item url="^/ws/classTeacher/classNotice/add/commit" param="content" type="0"/>
+        </filter>
+        <filter name="upload">
+            <!-- 1 表示大小不限制  2表示类型不限制 3都不限制 url不支持正则，参数可以,号隔开-->
+            <!--<item url="/examples/upload_upload.action" param="file1" type="0"/>-->
+        </filter>
+        <filter name="sql">
+            <!-- url支持正则，不填写parm为全部参数，参数可以,号隔开-->
+            <!--<item url="^/examples/upload_\w+.action" param="field1,field2"/>-->
+        </filter>
+        <!-- 某一时间段内指定url限制访问次数
+            period时间段内，times访问次数，time解封周期，ip白名单，targetClass过滤器自定义实现类
+            默认每3600秒（period->1小时）内，只能访问指定URL 10（times）次，86400秒（time->24小时）后解封，
+            其中filter为全局配置，item为局部配置，比如限制发送短信接口 -->
+        <!--<filter name="urlAccess" times="3" period="30" time="10" ip="127.0.0.1" targetClass="">-->
+            <!--<item url="/static/1" times="3" period="30" time="10"/>-->
+        <!--</filter>-->
+    </filters>
+</root>

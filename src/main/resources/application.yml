@@ -1,0 +1,59 @@
+# PROFILES
+## dev | prod | test
+spring:
+  profiles:
+    active: @profiles.activation@
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: false # 静态资源路径加上md5值,放浏览器缓存
+          paths: /**/*.css,/**/*.js,/**/*.png,/**/*.jpg,/**/*.gif
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    maxActive: 50 # 连接池最大连接数, 设为 0 表示无限制
+    minIdle: 5 # 保持的最小连接数
+    maxIdle: 50 # 最大空闲连接数
+    maxWait: 500 # 建立连接等待时间, 如果超出会接到异常, 设为 -1 表示无限制
+    timeBetweenEvictionRunsMillis: 60000 # 指定空闲连接检查、废弃连接清理、空闲连接池大小调整之间的操作时间间隔, 5分钟
+    minEvictableIdleTimeMillis: 300000 # 连接池空闲连接的有效时间, 设置30分钟, 指定一个空闲连接最少空闲多久后可被清除
+    testOnBorrow: false # 获取连接时验证, 会影响性能
+    testOnReturn: false # 归还连接时验证
+    testWhileIdle: true # 验证连接有效性
+    poolPreparedStatements: true #数据库游标缓存
+    maxOpenPreparedStatements: 50 #数据库游标缓存数量
+    validationQuery: SELECT 1 FROM DUAL
+  http:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  mvc:
+    favicon:
+      enabled: false
+#    view:
+#      prefix: /
+#      suffix: .html
+  freemarker:
+    request-context-attribute: rc # Name of the RequestContext attribute for all views.
+#    settings:
+      #datetime_format: yyyy-MM-dd HH:mm:ss
+      #date_format: yyyy-MM-dd
+      #time_format: HH:mm:ss
+      #number_format: 0.######;
+      #boolean_format: true,false
+#      template_exception_handler: com.ryan.framework.config.FreemarkerTemplateExceptionHandler
+mybatis:
+  type-aliases-package: com.ryan.framework.domain
+  mapper-locations:
+    - classpath:com/whaty/data/mapper/*.xml
+    - classpath:com/whaty/job/mapper/*.xml
+  configuration:
+    lazyLoadingEnabled: true #懒加载开关
+    aggressiveLazyLoading: false #设置为按需加载
+    callSettersOnNulls: true #映射null值
+pagehelper:
+  helperDialect: mysql
+  reasonable: true #自动合理化参数
+  #支持mapper接口传入分页参数
+  supportMethodsArguments: true

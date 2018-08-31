@@ -1,0 +1,57 @@
+
+/**
+ * All styles are preceded by `mCSB`, except`mCustomScrollBox` 
+ * 0 - scrollTools 滚动条最外层元素框
+ * 1 - draggerContainer 滑道的外框
+ * 2 - button 两端微调按钮
+ * 1.1 - draggerRail 滑道l轨道
+ * 1.2 - dragger 滑块可滑动区域
+ * 1.3 - dragger_bar 滑块
+ * 00 - mCustomScrollBox 横向滚动条的文字内容区
+ ********************************************
+ * 以下重要说明
+ * 滚动条默认宽度/高度`16px`（= 滑块默认宽度/高度 `4px` + 左右/上下各`6px`的边距）
+ * 滚动条位置不论是在内（`inside`），还是在外（`outside`），用默认样式总不会是期待的合适位置（在边框内并贴近边框，与内容保持合适距离）
+ * 
+ * 所以：
+ * 1.纵向滚动条时
+ * 启用在外（`outside`）的位置设置，同时微调滚动条外框（`scrollTools`）的偏移值（`right`）
+ * 一旦调整滑块宽度，`scrollTools`的偏移值也要相应调整，以达到最佳效果
+ *
+ * 2.横向滚动条时
+ * 启用在内（`inside`）的位置设置，同时微调滚动条外框（`scrollTools`）的偏移值（`bottom`）
+ * 利用横向滚动条的独有样式`mCustomScrollBox`，调整内容区的`margin-bottom`（一般为负值，且绝对值不得超过已有的`padding-bottom`）
+ * 一旦调整滑块高度，`scrollTools`的偏移值也要相应调整，以达到最佳效果
+ */
+
+/**
+ * 纵向滚动条样式 `my-theme`
+ */
+.mCS-my-theme.mCSB_scrollTools { right: -5px;}
+.mCS-my-theme.mCSB_scrollTools .mCSB_button {}
+.mCS-my-theme.mCSB_scrollTools .mCSB_draggerContainer {}
+.mCS-my-theme.mCSB_scrollTools .mCSB_dragger {}
+.mCS-my-theme.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ width: 6px; background-color: gray; border-radius: 0;}
+.mCS-my-theme.mCSB_scrollTools .mCSB_draggerRail{ background-color: transparent; } 
+
+/**
+ * 主体表格纵向滚动条样式 `my-theme-mTable`
+ */
+.mCS-my-theme-mTable.mCSB_scrollTools { right: -5px; background:#000;}
+.mCS-my-theme-mTable.mCSB_scrollTools .mCSB_button {}
+.mCS-my-theme-mTable.mCSB_scrollTools .mCSB_draggerContainer {}
+.mCS-my-theme-mTable.mCSB_scrollTools .mCSB_dragger {}
+.mCS-my-theme-mTable.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ width: 8px; background-color: gray; border-radius: 0;}
+.mCS-my-theme.mCSB_scrollTools .mCSB_draggerRail{ background-color: transparent; } 
+
+
+
+/**
+ * 横向滚动条样式 `my-theme-h`
+ */
+.mCS-my-theme-h.mCSB_scrollTools { bottom: 28px; z-index: 100;}
+.mCS-my-theme-h.mCSB_scrollTools .mCSB_button {}
+.mCS-my-theme-h.mCSB_scrollTools .mCSB_draggerContainer {}
+.mCS-my-theme-h.mCSB_scrollTools .mCSB_dragger {}
+.mCS-my-theme-h.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ height: 8px; border-radius: 0; background-color: gray; }
+.mCS-my-theme-h.mCSB_scrollTools .mCSB_draggerRail{ background-color: transparent; } 

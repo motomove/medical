@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+/*--------------------- reset CSS ---------------------*/
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,form { margin:0;}
+body { color:#666; background:white; font-size:12px; line-height:1.5;}
+body,input,textarea,select { }
+ul,ol,li { padding-left:0; list-style-type:none;}
+img { border:0; vertical-align:bottom;}
+input,textarea,select { font-size:12px; outline:none; border:none; margin:0; padding:0;}
+input::-ms-clear{ display:none;} /* 去除IE下input自带的叉 */
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset !important;} /* 去除chrome下输入框默认背景色 */
+h1,h2,h3,h4,h5,h6 { font-weight:normal;}
+h4,h5,h6{ font-size:1em;}
+a { font-size:12px; text-decoration:none; color:#666;}
+</style>
+<link rel="stylesheet" type="text/css" href="../css/loading.css">
+</head>
+
+<body style="text-align: center">
+<!---------------------------- waiting start ---------------------------->
+<div style="height:100%; margin: 20px auto;">
+
+	<div class="loading">
+		<div class="ld_top">
+			<div class="ld_corner ld_top_corner ld_top_l"></div>
+			<div class="ld_bar ld_top_m"></div>
+			<div class="ld_corner ld_top_corner ld_top_r"></div>
+		</div>
+		<div class="ld_mid">
+			<div class="ld_mid_in">
+				<div class="ld_mid_cont">
+					<!-- waiting -->
+					<div ><img src="../images/loading/loading_whole.gif" alt=""></div>
+					<p class="ld_txt">加载中...</p>
+					<!-- waiting end -->
+				</div>
+			</div>
+		</div>
+		<div class="ld_bot">
+			<div class="ld_corner ld_bot_corner ld_bot_l"></div>
+			<div class="ld_bar ld_bot_m"></div>
+			<div class="ld_corner ld_bot_corner ld_bot_r"></div>
+		</div>
+	</div>
+
+</div>
+<!---------------------------- waiting end ---------------------------->
+</body>
+</html>

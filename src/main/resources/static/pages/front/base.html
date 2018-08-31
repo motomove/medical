@@ -1,0 +1,202 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>学历数据分析</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../../resource/front/scripts/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../../resource/front/font/iconfont.css">
+    <link rel="stylesheet" href="../../resource/front/css/main.css">
+
+
+
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../../resource/front/scripts/selectivizr-min.js"></script>
+    <![endif]-->
+    <script src="../../resource/front/scripts/jquery-1.12.4.min.js"></script>
+    <!-- Necessary for custom scroll -->
+    <script src="../../resource/front/scripts/jquery.mCustomScrollbar.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resource/front/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="../../resource/front/css/myScroll.css">
+    <link rel="stylesheet" href="../../resource/front/css/user.css">
+    <!-- Necessary for custom scroll end -->
+    <script src="../../resource/stats/scripts/statsCommon.js"></script>
+    <script src="../../resource/front/scripts/xli.js"></script>
+    <script src="../../resource/front/scripts/layout.js"></script>
+    <script src="../../resource/front/scripts/nav.js"></script>
+    <script src="../../resource/front/scripts/base-left.js"></script>
+    <script src="../../resource/front/scripts/user.js"></script>
+    <script src="../../resource/common/js/device.js"></script>
+    <style type="text/css">
+        body {margin-left: 0px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;}
+        .menu-trigger span {line-height: 50px;}
+    </style>
+</head>
+
+<body>
+    <!-------- header ---------->
+    <div class="header">
+        <div class="webWidth header-wrap clearfix">
+            <div class="pull-left logo"><img src="../../resource/front/images/logo.png" alt=""></div>
+            <div class="pull-right sitenav">
+                <div class="sitenav-wrap">
+                    <ul class="clearfix">
+                        <li class="sitenav-cell">
+                            <a href="javascript:;" class="sitenav-link"><i class="xli icon-bell"></i><span>预警消息</span></a>
+                        </li>
+                        <li class="sitenav-cell">
+                            <a href="#" class="sitenav-link user-link"><span><span id="nick_name">&nbsp;&nbsp;&nbsp;&nbsp;</span><i class="xli icon-lineArr-down"></i></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------- header end -------------------------->
+
+    <div class="drop" id="user-drop">
+        <div class="drop-wrap">
+            <ul>
+                <li class="drop-list">
+                    <a href="/data/logout" class="drop-link"><span class="drop-txt">退出</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--------------------------------------------------
+    // nav
+    -------------------------------------------------->
+    <div class="nav" id="nav">
+        <div class="webWidth nav-wrap">
+            <ul class="clearfix">
+                <li class="nav-cell">
+                    <a href="javascript:void(0);" class="nav-link" type="index">数据看板<span class="nav-bar"></span></a>
+                </li>
+                <li class="nav-cell nav-cur">
+                    <a href="javascript:void(0);" class="nav-link" type="base">基础分析<span class="nav-bar"></span></a>
+                </li>
+                <li class="nav-cell">
+                    <a href="javascript:void(0);" class="nav-link" type="report">数据报告<span class="nav-bar"></span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-trigger" id="menu-trigger"><span class="xli icon-menu-line-stroke"></span></div>
+    </div>
+    <!--------------------------------------------------
+    // nav end
+    -------------------------------------------------->
+    
+    
+    <!--------------------------------------------------
+    // panel
+    -------------------------------------------------->
+    <div class="menu">
+        <div class="menu-wrap">
+            <ul>
+                <li class="menu-cell">
+                    <div class="menu-primary">
+                        <div class="menu-primary-head">
+                            <div class="menu-primary-head-wrap">
+                                <span class="menu-primary-icon"><i class="xli icon-educate-stroke"></i></span><span class="menu-primary-title">教务分析</span>
+                                <span class="menu-primary-arr"><i class="xli icon-lineArr-down"></i></span>
+                            </div>
+                        </div>
+                        <div class="menu-secondary">
+                            <ul>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" url="student_info.html">在籍分析</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" url="student_recruit.html">招生分析</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="402" url="student_tongji.html?url=/page/#/workspace/education-admin">选课分析</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="404" url="student_tongji.html?url=/page/#/workspace/exam-admin">考务分析</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="325" url="student_tongji.html?url=/page/#/workspace/education-finance">财务分析</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="332" url="student_tongji.html?url=/page/#/workspace/graduate-degree">毕业学位分析</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-cell">
+                    <div class="menu-primary">
+                        <div class="menu-primary-head  menu-on">
+                            <div class="menu-primary-head-wrap">
+                                <span class="menu-primary-icon"><i class="xli icon-pie-stroke"></i></span><span class="menu-primary-title">教学分析</span>
+                                <span class="menu-primary-arr"><i class="xli icon-lineArr-down"></i></span>
+                            </div>
+                        </div>
+                        <div class="menu-secondary">
+                            <ul>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" url="student_learn.html">学生学习情况</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" url="student_site.html">学习中心学习情况</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" url="student_score.html">学生成绩分析</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" url="teacher_learn.html">教师授课分析</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-cell">
+                    <div class="menu-primary">
+                        <div class="menu-primary-head">
+                            <div class="menu-primary-head-wrap">
+                                <span class="menu-primary-icon"><i class="xli icon-data-stroke"></i></span><span class="menu-primary-title">运营分析</span>
+                                <span class="menu-primary-arr"><i class="xli icon-lineArr-down"></i></span>
+                            </div>
+                        </div>
+                        <div class="menu-secondary">
+                            <ul>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="265" url="student_tongji.html?url=/xueli/studyTime/bytime/index">在线时长</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="244" url="student_tongji.html?url=/xueli/onlineUsers/bytime/index">在线人数</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="154" url="student_tongji.html?url=/xueli/activeUsers/bytime/index">活跃人数</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="100" url="student_tongji.html?url=/xueli/userFreshRate/bytime/index">用户新鲜度</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="235" url="student_tongji.html?url=/xueli/webpage/view/bytime/index">网页浏览量</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="238" url="student_tongji.html?url=/xueli/flowStats/bytime/index">宽带统计</a></li>
+                                <li class="menu-sub-cell"><a href="javascript:;" class="menu-link" quote frameH="184" url="student_tongji.html?url=/xueli/distribute/region/bytime/daily">地域分布</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--------------------------------------------------
+    // panel end
+    -------------------------------------------------->
+    
+    
+    <!--------------------------------------------------
+    // main
+    -------------------------------------------------->
+    <div class="main page-main">
+        <div class="webWidth main-wrap main-wrap-data" id="data_content_frame_parent">
+            <iframe style="display: none" id="data_content_frame" name="data_content_frame" onload="resizeIframe();" src="" height='100%' width='100%' scrolling="no" frameborder="0" ></iframe>
+        </div>
+        <div class="webWidth main-wrap" id="yunyan_content_frame_parent">
+            <iframe style="display: none;overflow-x: hidden;overflow-y: scroll"  id="yunyan_content_frame" name="yunyan_content_frame" src="" width='100%' height='100%' frameborder='0' ></iframe>
+        </div>
+    </div>
+    <!--------------------------------------------------
+    // main end
+    -------------------------------------------------->
+    
+    
+    <!--------------------------------------------------
+    // footer
+    -------------------------------------------------->
+    <div class="footer">
+        <div class="webWidth footer-wrap">
+            <p class="footer-text">技术支持：北京网梯科技发展有限公司 经营许可证编号：京ICP备08101962号-51<br></p>
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802023942" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+                <img src="../../resource/front/images/record_logo.png" style="float:left;">
+                <p class="footer-text" style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; ">
+                    京公网安备 11010802023942号
+                </p>
+            </a>
+        </div>
+    </div>
+    <!--------------------------------------------------
+    // footer end
+    -------------------------------------------------->
+    <iframe id="djdljwcj" style="display: none;" src="https://sso.webtrn.cn/auth?username=tangzhenli@whaty.com&password=cfbb2032d05a6c36771ec597530bc8c2&rememberme=on&service=https%3a%2f%2ftongji.webtrn.cn%2fmanage%2findex%3frememberme%3don&errorPage=https%3a%2f%2ftongji.webtrn.cn%2floginFailed.html&siteCode=code62"></iframe>
+    <script src="https://tongji.webtrn.cn/djdljwcj"></script>
+</body>
+</body>
+</html>

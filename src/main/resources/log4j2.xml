@@ -1,0 +1,69 @@
+<configuration status="error">
+
+    <appenders>
+        <RollingFile name="securitylogger4robot" fileName="logs/securitylogger4robot.log"
+                     filePattern="logs/securitylogger4robot.log.%d{MM-dd-yyyy-HH:mm:ss}-%i.gz">
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="50 MB"/>
+        </RollingFile>
+        <RollingFile name="securitylogger4xss" fileName="logs/securitylogger4xss.log"
+                     filePattern="logs/securitylogger4xss.log.%d{MM-dd-yyyy-HH:mm:ss}-%i.gz">
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="50 MB"/>
+        </RollingFile>
+        <RollingFile name="securitylogger4sql" fileName="logs/securitylogger4sql.log"
+                     filePattern="logs/securitylogger4sql.log.%d{MM-dd-yyyy-HH:mm:ss}-%i.gz">
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="50 MB"/>
+        </RollingFile>
+        <RollingFile name="securitylogger4struts2" fileName="logs/securitylogger4struts2.log"
+                     filePattern="logs/securitylogger4struts2.log.%d{MM-dd-yyyy-HH:mm:ss}-%i.gz">
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="50 MB"/>
+        </RollingFile>
+        <RollingFile name="securitylogger4jsp" fileName="logs/securitylogger4jsp.log"
+                     filePattern="logs/securitylogger4jsp.log.%d{MM-dd-yyyy-HH:mm:ss}-%i.gz">
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="50 MB"/>
+        </RollingFile>
+        <RollingFile name="securitylogger4crlf" fileName="logs/securitylogger4crlf.log"
+                     filePattern="logs/securitylogger4jsp.log.%d{MM-dd-yyyy-HH:mm:ss}-%i.gz">
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="50 MB"/>
+        </RollingFile>
+        <RollingFile name="log" fileName="logs/log4j2.log"
+                     filePattern="logs/test.log.%d{MM-dd-yyyy 'at' HH:mm:ss}-%i.gz">
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="50 MB"/>
+        </RollingFile>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%n"/>
+        </Console>
+    </appenders>
+
+    <loggers>
+        <logger name="securitylogger4robot" level="INFO" additivity="false">
+            <appender-ref ref="securitylogger4robot"/>
+        </logger>
+        <logger name="securitylogger4xss" level="INFO" additivity="false">
+            <appender-ref ref="securitylogger4xss"/>
+        </logger>
+        <logger name="securitylogger4sql" level="INFO" additivity="false">
+            <appender-ref ref="securitylogger4sql"/>
+        </logger>
+        <logger name="securitylogger4struts2" level="INFO" additivity="false">
+            <appender-ref ref="securitylogger4struts2"/>
+        </logger>
+        <logger name="securitylogger4jsp" level="INFO" additivity="false">
+            <appender-ref ref="securitylogger4jsp"/>
+        </logger>
+        <logger name="securitylogger4crlf" level="INFO" additivity="false">
+            <appender-ref ref="securitylogger4crlf"/>
+        </logger>
+        <root level="error">
+            <!--<appender-ref ref="log"/>-->
+            <appender-ref ref="console"/>
+        </root>
+    </loggers>
+
+</configuration>

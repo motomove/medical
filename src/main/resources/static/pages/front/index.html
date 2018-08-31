@@ -1,0 +1,390 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>学历数据分析</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../../resource/front/scripts/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../../resource/front/font/iconfont.css">
+    <link rel="stylesheet" href="../../resource/front/css/main.css">
+    <link rel="stylesheet" href="../../resource/front/css/user.css">
+    <style rel="stylesheet">
+        .tooltip_header{font-size: 12px; font-weight: bold; color: #eee; line-height: 30px;}
+        .tooltip_table-cell_first{float: left; margin: 0 10px;}
+        .tooltip_table-cell{float: left; margin: 0 5px;}
+        .tooltip_align{text-align: center;}
+    </style>
+
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../../resource/front/scripts/selectivizr-min.js"></script>
+    <![endif]-->
+    <script src="../../resource/front/scripts/jquery-1.12.4.min.js"></script>
+    <script src="../../resource/stats/scripts/statsCommon.js"></script>
+    <script src="../../resource/stats/scripts/analysisScript.js?a=20180509"></script>
+    <script src="../../resource/stats/echarts-3.8.5/echarts.min.js"></script>
+    <script src="../../resource/front/scripts/xli.js"></script>
+    <script src="../../resource/front/scripts/front.js"></script>
+    <script src="../../resource/front/scripts/nav.js"></script>
+    <script src="../../resource/front/scripts/user.js"></script>
+    <script src="../../resource/common/js/device.js"></script>
+</head>
+
+<body>
+<!--------------------------------------------------
+// header
+-------------------------------------------------->
+<div class="header">
+    <div class="webWidth header-wrap clearfix">
+        <div class="pull-left logo"><img src="../../resource/front/images/logo.png" alt=""></div>
+        <div class="pull-right sitenav">
+            <div class="sitenav-wrap">
+                <ul class="clearfix">
+                    <li class="sitenav-cell">
+                        <a href="javascript:;" class="sitenav-link"><i class="xli icon-bell"></i><span>预警消息</span></a>
+                    </li>
+                    <li class="sitenav-cell">
+                        <a href="#" class="sitenav-link user-link"><span><span id="nick_name">&nbsp;&nbsp;&nbsp;&nbsp;</span><i class="xli icon-lineArr-down"></i></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------------------------------------------------
+// header end  /data/logout
+-------------------------------------------------->
+
+<div class="drop" id="user-drop">
+    <div class="drop-wrap">
+        <ul>
+            <li class="drop-list">
+                <a href="/data/logout" class="drop-link"><span class="drop-txt">退出</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!--------------------------------------------------
+// nav
+-------------------------------------------------->
+<div class="nav" id="nav">
+    <div class="webWidth nav-wrap" >
+        <ul class="clearfix">
+            <li class="nav-cell nav-cur">
+                <a href="javascript:;" class="nav-link" type="index">数据看板<span class="nav-bar"></span></a>
+            </li>
+            <li class="nav-cell">
+                <a href="javascript:;" class="nav-link" type="base">基础分析<span class="nav-bar"></span></a>
+            </li>
+            <li class="nav-cell">
+                <a href="javascript:;" class="nav-link" type="report">数据报告<span class="nav-bar"></span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--------------------------------------------------
+// nav end
+-------------------------------------------------->
+
+
+<!--------------------------------------------------
+// main
+-------------------------------------------------->
+<div class="main">
+    <div class="webWidth main-wrap">
+        <ul class="clearfix">
+
+            <!---------- mod ---------->
+            <li class="mod-cell col-1">
+                <div class="mod mod-total">
+                    <div class="mod-total-title">
+                        <span class="mod-total-title-text">平台概况</span>
+                    </div>
+                    <div class="mod-wrap">
+                        <ul class="clearfix">
+                            <li class="mod-total-col">
+                                <ul>
+                                    <li class="mod-total-cell">
+                                        <div class="total-box">
+                                            <span class="total-title">在籍人数</span>
+                                            <div class="total-con">
+                                                <span class="total-num"  id="stu_num">0</span>
+                                                <span class="total-text">人</span>
+                                                <span class="total-text total-suffix">(当前在线<span id="student_online_num">0</span>人)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mod-total-cell">
+                                        <div class="total-box">
+                                            <span class="total-title">累计学习时长</span>
+                                            <div class="total-con">
+                                                <span class="total-num" id="s_h">0</span>
+                                                <span class="total-text">小时</span>
+                                                <span class="total-num" id="s_m">0</span>
+                                                <span class="total-text">分</span>
+                                                <!--<span class="total-num" id="s_s">0</span>
+                                                <span class="total-text">秒</span>-->
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mod-total-cell">
+                                        <div class="total-box">
+                                            <span class="total-title">本周学习时长</span>
+                                            <div class="total-con">
+                                                <span class="total-num" id="week_s_h">0</span>
+                                                <span class="total-text">小时</span>
+                                                <span class="total-num" id="week_s_m">0</span>
+                                                <span class="total-text">分</span>
+                                                <!--<span class="total-num" id="week_s_s">0</span>
+                                                <span class="total-text">秒</span>-->
+                                                <!--<span class="total-text total-suffix primary">(环比增长<span id="s_rate">0</span>%)</span>-->
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="mod-total-col">
+                                <ul>
+                                    <li class="mod-total-cell">
+                                        <div class="total-box">
+                                            <span class="total-title">教师人数</span>
+                                            <div class="total-con">
+                                                <span class="total-num" id="t_num">0</span>
+                                                <span class="total-text">人</span>
+                                                <span class="total-text total-suffix">(当前在线<span id="teacher_online_num">0</span>人)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mod-total-cell">
+                                        <div class="total-box">
+                                            <span class="total-title">累计授课时长</span>
+                                            <div class="total-con">
+                                                <span class="total-num" id="t_h">0</span>
+                                                <span class="total-text">小时</span>
+                                                <span class="total-num" id="t_m">0</span>
+                                                <span class="total-text">分</span>
+                                                <!--<span class="total-num" id="t_s">0</span>
+                                                <span class="total-text">秒</span>-->
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mod-total-cell">
+                                        <div class="total-box">
+                                            <span class="total-title">本周授课时长</span>
+                                            <div class="total-con">
+                                                <span class="total-num" id="week_t_h">0</span>
+                                                <span class="total-text">小时</span>
+                                                <span class="total-num" id="week_t_m">0</span>
+                                                <span class="total-text">分</span>
+                                                <!--<span class="total-num" id="week_t_s">0</span>
+                                                <span class="total-text">秒</span>-->
+                                                <!--<span class="total-text total-suffix primary">(环比增长<span id="t_rate">0</span>%)</span>-->
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="mod-total-col">
+                                <ul>
+                                    <li class="mod-total-cell">
+                                        <div class="total-box">
+                                            <span class="total-title">课程总数</span>
+                                            <div class="total-con">
+                                                <span class="total-num" id="c_num">0</span>
+                                                <span class="total-text">门</span>
+                                                <span class="total-text total-suffix" id="c_rate">(本年更新率0%)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mod-total-cell">
+                                        <div class="total-box">
+                                            <span class="total-title">专业</span>
+                                            <div class="total-con">
+                                                <span class="total-text">本科</span>
+                                                <span class="total-num" id="major_degree_num">0</span>
+                                                <span class="total-text">门</span>
+                                                &nbsp;&nbsp;
+                                                <span class="total-text">专科</span>
+                                                <span class="total-num" id="major_training_num">0</span>
+                                                <span class="total-text">门</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mod-total-cell">
+                                        <div class="total-box">
+                                            <span class="total-title">学习中心</span>
+                                            <div class="total-con">
+                                                <span class="total-num" id="site_num">0</span>
+                                                <span class="total-text">个</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!---------- mod end ---------->
+
+            <!---------- mod ---------->
+            <li class="mod-cell col-1">
+                <div class="mod mod-comp">
+                    <div class="mod-wrap">
+                        <div class="mod-title">
+                            <div class="mod-title-text">综合指数</div>
+                        </div>
+                        <div class="mod-body">
+                            <ul class="clearfix">
+                                <li class="mod-comp-cell">
+                                    <div class="mod-comp-box" id="composite_index" style="width: 100%;height: 200px;">这里放图表</div>
+                                </li>
+                                <li class="mod-comp-cell">
+                                    <div class="mod-comp-box" id="index_trend" style="width: 100%;height: 220px;">
+                                        <div class="mod-sub-title">指数趋势</div>
+                                        <div >这里放图表</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!---------- mod end ---------->
+
+            <!---------- mod ---------->
+            <li class="mod-cell col-2">
+                <div class="mod" id="online_time" style="width: 98%;height: 300px;background: #fff;">
+                    <div class="mod-wrap">
+                        <div class="mod-title">
+                            <div class="mod-title-text">每日学习时长</div>
+                        </div>
+                        <div class="mod-body">这里放图表</div>
+                    </div>
+                </div>
+            </li>
+            <!---------- mod end ---------->
+
+            <!---------- mod ---------->
+            <li class="mod-cell col-2">
+                <div class="mod" id="online_num" style="width: 98%;height: 300px;background: #fff;">
+                    <div class="mod-wrap" >
+                        <div class="mod-title">
+                            <div class="mod-title-text">今日在线人数</div>
+                        </div>
+                        <div class="mod-body" >这里放图表</div>
+                    </div>
+                </div>
+            </li>
+            <!---------- mod end ---------->
+
+            <!---------- mod ---------->
+            <li class="mod-cell col-2">
+                <div class="mod" id="active_area" style="width: 98%;height: 300px;background: #fff;">
+                    <div class="mod-wrap">
+                        <div class="mod-title">
+                            <div class="mod-title-text">活跃人数地域分布</div>
+                        </div>
+                        <div class="mod-body">这里放图表</div>
+                    </div>
+                </div>
+            </li>
+            <!---------- mod end ---------->
+
+            <!---------- mod ---------->
+            <li class="mod-cell col-2">
+                <div class="mod" id="new_student" style="width: 98%;height: 300px;background: #fff;">
+                    <div class="mod-wrap">
+                        <div class="mod-title">
+                            <div class="mod-title-text">学习中心新生人数分布</div>
+                        </div>
+                        <div class="mod-body">这里放图表</div>
+                    </div>
+                </div>
+            </li>
+            <!---------- mod end ---------->
+
+            <!---------- mod ---------->
+            <li class="mod-cell col-2">
+                <div class="mod" style="width: 98%;">
+                    <div class="mod-wrap">
+                        <div class="mod-title">
+                            <div class="mod-title-text">新生专业分布</div>
+                        </div>
+                        <div class="mod-body">
+                            <div class="table">
+                                <div class="tableHead">
+                                    <ul class="clearfix" >
+                                        <li class="table-cell">
+                                            <div class="table-cellIn">专业</div>
+                                        </li>
+                                        <li class="table-cell">
+                                            <div class="table-cellIn">人数</div>
+                                        </li>
+                                        <li class="table-cell">
+                                            <div class="table-cellIn">占比</div>
+                                        </li>
+                                        <li class="table-cell">
+                                            <div class="table-cellIn">排名</div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="tableBody" id="student_new_major"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!---------- mod end ---------->
+
+            <!---------- mod ---------->
+            <li class="mod-cell col-2">
+                <div class="mod" id="course_update_rate" style="width: 98%;height: 300px;background: #fff;">
+                    <div class="mod-wrap">
+                        <div class="mod-title">
+                            <div class="mod-title-text">课程年度更新率</div>
+                        </div>
+                        <div class="mod-body">这里放图表</div>
+                    </div>
+                </div>
+            </li>
+            <!---------- mod end ---------->
+
+        </ul>
+    </div>
+</div>
+<!--------------------------------------------------
+// main end
+-------------------------------------------------->
+
+
+<!--------------------------------------------------
+// footer
+-------------------------------------------------->
+<div class="footer">
+    <div class="webWidth footer-wrap">
+        <p class="footer-text">技术支持：北京网梯科技发展有限公司 经营许可证编号：京ICP备08101962号-51<br></p>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802023942" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+            <img src="../../resource/front/images/record_logo.png" style="float:left;">
+            <p class="footer-text" style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; ">
+                京公网安备 11010802023942号
+            </p>
+        </a>
+    </div>
+</div>
+
+
+<!--------------------------------------------------
+// footer end
+-------------------------------------------------->
+<!--<iframe id="djdljwcj" style="display: none;" src="https://sso.webtrn.cn/auth?username=kongzifan@whaty.com&password=fb8ebc5f83b76dadaf3192f3ef6d275a&rememberme=on&service=https%3a%2f%2ftongji.webtrn.cn%2fmanage%2findex%3frememberme%3don&errorPage=https%3a%2f%2ftongji.webtrn.cn%2floginFailed.html&siteCode=ustb"></iframe>-->
+<iframe id="djdljwcj" style="display: none;" src="https://sso.webtrn.cn/auth?username=tangzhenli@whaty.com&password=cfbb2032d05a6c36771ec597530bc8c2&rememberme=on&service=https%3a%2f%2ftongji.webtrn.cn%2fmanage%2findex%3frememberme%3don&errorPage=https%3a%2f%2ftongji.webtrn.cn%2floginFailed.html&siteCode=code62"></iframe>
+<script src="https://tongji.webtrn.cn/djdljwcj"></script>
+<script src="https://tongji.webtrn.cn/static/js/echarts_v3/map/js/china.js"></script>
+</body>
+</html>

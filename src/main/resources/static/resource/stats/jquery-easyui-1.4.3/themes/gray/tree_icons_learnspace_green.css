@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+.tree_icon_video { background:url(images/mini-icos.png) no-repeat 0 -22px;}
+.tree_icon_text {background:url(images/mini-icos.png) no-repeat -20px -21px;}
+.tree_icon_doc {background:url(images/mini-icos.png) no-repeat -41px -21px;}
+.tree_icon_resource {background:url(images/mini-icos.png) no-repeat -60px -21px;}
+.tree_icon_link{background:url(images/mini-icos.png) no-repeat -80px -22px;}
+.tree_icon_homework {background:url(images/mini-icos.png) no-repeat -101px -21px;}
+.tree_icon_topic {background:url(images/mini-icos.png) no-repeat -120px -21px;}
+.tree_icon_courseware {background:url(images/mini-icos.png) no-repeat -140px -21px;}
+.tree_icon_test {background:url(images/mini-icos.png) no-repeat -160px -21px;}

@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <script src="../../resource/stats/scripts/jquery-1.12.4.min.js"></script>
+    <script src="../../resource/stats/scripts/manage/commonHeader.js"></script>
+    <script src="../../resource/stats/scripts/manage/pageHeader.js"></script>
+    <script src="../../resource/stats/scripts/manage/manageStatsVideoInfo.js"></script>
+    <script src="../../resource/common/js/device.js"></script>
+</head>
+
+<body class="bg_eb">
+<div class="webMinWidth" style="margin: 0px auto 0px auto">
+    <!--------------------------------------------------
+    // 分析选项卡
+    -------------------------------------------------->
+    <div class="an_box">
+        <div class="anTab-body">
+            <!----------------------------- 学习中心情况 ------------------------------>
+            <div class="anTab-con" id="anTab-con-1" style="display:none;">
+
+                <!--------- 学习中心总学习时长 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">学习中心总学习时长</span>
+
+                        <div class="an_modtit_right" style="padding-right:130px;">
+                            <div class="clearfix gridTabLMA-head" id="gridTabLMA-head-total">
+                                <ul>
+                                    <li class="gridTabLMA-tab gridTabLMA-first"><a class="gridTabLMA-cur" id="gridTabLMA1" onclick="setTabs('gridTabLMA','1','3');" href="javascript:;">周</a></li>
+                                    <li class="gridTabLMA-tab"><a id="gridTabLMA2" onclick="setTabs('gridTabLMA','2','3');" href="javascript:;">月</a></li>
+                                    <li class="gridTabLMA-tab"><a id="gridTabLMA3" onclick="setTabs('gridTabLMA','3','3');" href="javascript:;">年</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTabLMA-body">
+                        <div class="gridTabLMA-con" id="gridTabLMA-con-1" style="display:block;">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="gridTabLMA_month_select_week">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabLMA-con" id="gridTabLMA-con-2">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="gridTabLMA_month_select_month" >
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabLMA-con" id="gridTabLMA-con-3" >
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="gridTabLMA_month_select_year" >
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="an_graph1" id="manageVideoLearn">
+                        </div>
+                    </div>
+                </div>
+                <!--------- 学习中心总学习时长 ---------->
+
+                <!--------- 学习中心人均学习时长 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">学习中心人均学习时长</span>
+
+                        <div class="an_modtit_right" style="padding-right:130px;">
+                            <div class="clearfix gridTabLMB-head" id="gridTabLMA-head-avg">
+                                <ul>
+                                    <li class="gridTabLMB-tab gridTabLMB-first"><a class="gridTabLMB-cur" id="gridTabLMB1" onclick="setTabs('gridTabLMB','1','3');" href="javascript:;">周</a></li>
+                                    <li class="gridTabLMB-tab"><a id="gridTabLMB2" onclick="setTabs('gridTabLMB','2','3');" href="javascript:;">月</a></li>
+                                    <li class="gridTabLMB-tab"><a id="gridTabLMB3" onclick="setTabs('gridTabLMB','3','3');" href="javascript:;">年</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTabLMB-body">
+                        <div class="gridTabLMB-con" id="gridTabLMB-con-1" style="display:block;">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="gridTabLMA_month_select_week_avg">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabLMB-con" id="gridTabLMB-con-2">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="gridTabLMA_month_select_month_avg" >
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabLMB-con" id="gridTabLMB-con-3" >
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="gridTabLMA_month_select_year_avg" >
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="an_graph1" id="site_avg_learntime">
+                        </div>
+                    </div>
+                </div>
+                <!--------- 学习中心人均学习时长 ---------->
+
+                <!--------- 学习中心上线率 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">学习中心上线率</span>
+
+                        <div class="an_modtit_right" style="padding-right:130px;">
+                            <div class="clearfix gridTabLMC-head">
+                                <ul>
+                                    <li class="gridTabLMC-tab gridTabLMC-first"><a class="gridTabLMC-cur" id="gridTabLMC1" onclick="setTabs('gridTabLMC','1','3');" href="javascript:;">周</a></li>
+                                    <li class="gridTabLMC-tab"><a id="gridTabLMC2" onclick="setTabs('gridTabLMC','2','3');" href="javascript:;">月</a></li>
+                                    <li class="gridTabLMC-tab"><a id="gridTabLMC3" onclick="setTabs('gridTabLMC','3','3');" href="javascript:;">年</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTabLMC-body">
+                        <div class="gridTabLMC-con" id="gridTabLMC-con-1" style="display:block;">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="gridTabLMC_month_select_week">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabLMC-con" id="gridTabLMC-con-2">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="gridTabLMC_month_select_month" >
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabLMC-con" id="gridTabLMC-con-3" >
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="gridTabLMC_month_select_year" >
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="an_graph1" id="site_line_rate">
+                        </div>
+                    </div>
+                </div>
+                <!--------- 学习中心上线率 ---------->
+
+
+                <!--------- 管理端视频详情完成情况 ---------->
+                <div class="an_modIn dashboard" >
+                    <!--------- 标题 ---------->
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">详细数据</span>
+
+
+                        <div class="an_modtit_right" style="padding-right:95px;">
+                            <div class="myselect">
+                                <span style="display: inline-block;text-align: center;" class="myselect_box"  id="site_start"></span>
+                            </div>
+                        </div>
+                        <div class="an_modtit_right" style="padding-right:85px;">
+                            -
+                        </div>
+                        <div class="an_modtit_right">
+                            <div class="myselect">
+                                <span style="display: inline-block;text-align: center;" class="myselect_box"  id="site_end"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--------- 以上标题 ---------->
+                    <div style="width:100%;overflow-x:auto;overflow-y:hidden;">
+
+                        <!-- table head -->
+                        <div class="clearfix resdisTabl-head">
+                            <div class="resdisTabl-2">
+                                <ul class="clearfix">
+                                    <li class="resdisTabl-col resdisTabl-col-5_6">
+                                        <span class="resdisTabl-txt">序号</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-26">
+                                        <span class="resdisTabl-txt">学习中心</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-10">
+                                        <span class="resdisTabl-txt">在籍人数</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-10">
+                                        <span class="resdisTabl-txt">上线人数</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-10">
+                                        <span class="resdisTabl-txt">上线率</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-14">
+                                        <span class="resdisTabl-txt">总学习时长</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-14">
+                                        <span class="resdisTabl-txt">人均上线学习时长</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-9_none">
+                                        <span class="resdisTabl-txt">人均在籍学习时长</span>
+                                        <span class="assist"></span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="clearfix" id="manage_video_table_load">
+                            <iframe name="content_frame" marginwidth=0 marginheight=0 width=100% height=100% src="../../resource/stats/pager/loading.html" frameborder=0></iframe>
+                        </div>
+
+                        <!-- table tab -->
+                        <div class="tablTab clearfix" id="manage_video_table_data">
+                            <!-- tablTab head -->
+                            <div class="tablTab-head2">
+                                <ul id="manageVideoDetail">
+                                    <li class="tablTab-tab">
+                                        <div class="resdisTabl tablTab-cur tableTab">
+                                            <ul class="clearfix">
+                                                <li class="resdisTabl-col resdisTabl-col-99_none " name="checkLine">暂无数据
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- tablTab head end -->
+                        </div>
+
+                        <!-- 分页 -->
+                        <div class="pagin mt10 page-tools" id="manage_video_page" style="margin: 10px auto;" ></div>
+                    </div>
+
+
+                    <!--------- 以上详情表格 ---------->
+                </div>
+                <!--------- 以上管理端视频详情完成情况 ---------->
+
+            </div>
+            <!----------------------------- 以上视频学习情况 ------------------------------>
+
+            <!---------- 空页面 ---------->
+            <div class="emptyWrap" id="anTab-con-noData" style="display:block;">
+                <div class="empty">
+                    <span class="empyt-icon empty-icon-noData"></span><br />
+                    <span class="empyt-txt">数据加载中</span>
+                </div>
+                <i class="assist"></i>
+            </div>
+            <!----------空页面 ---------->
+
+        </div>
+    </div>
+    <!--------------------------------------------------
+    // 以上分析选项卡
+    -------------------------------------------------->
+
+</div>
+</body>
+</html>

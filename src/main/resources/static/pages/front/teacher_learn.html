@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../resource/stats/jquery-easyui-1.4.3/themes/gray/easyui.css">
+    <script src="../../resource/stats/scripts/jquery-1.12.4.min.js"></script>
+    <script src="../../resource/stats/scripts/manage/commonHeader.js"></script>
+    <script src="../../resource/stats/scripts/manage/pageHeader.js"></script>
+    <script src="../../resource/stats/jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+    <script src="../../resource/stats/scripts/manage/manageTeacherStatsActive.js"></script>
+    <script src="../../resource/common/js/device.js"></script>
+</head>
+
+<body class="bg_eb">
+<div class="webMinWidth" style="margin: 0px auto">
+
+
+    <!--------------------------------------------------
+    // 分析选项卡
+    -------------------------------------------------->
+    <div class="an_box">
+        <div class="anTab-body">
+
+
+            <!----------------------------- 学生活跃度分析 ------------------------------>
+            <div class="anTab-con" id="anTab-con-1" style="display:block;">
+
+                <!--------- 总学习时长 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">总教学时长</span>
+
+                        <div class="an_modtit_right" style="padding-right:130px;">
+                            <div class="clearfix gridTab-head">
+                                <ul>
+                                    <li class="gridTab-tab gridTab-first">
+                                        <a class="gridTab-cur" id="gridTab1" onclick="setTabs('gridTab','1','3');" href="javascript:;">周</a>
+                                    </li>
+                                    <li class="gridTab-tab">
+                                        <a id="gridTab2" onclick="setTabs('gridTab','2','3');" href="javascript:;">月</a>
+                                    </li>
+                                    <li class="gridTab-tab">
+                                        <a id="gridTab3" onclick="setTabs('gridTab','3','3');" href="javascript:;">年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTab-body">
+                        <div class="gridTab-con" id="gridTab-con-1" style="display:block;">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="totalWeekId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTab-con" id="gridTab-con-2">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="totalMonthId">
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTab-con" id="gridTab-con-3">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="totalYearId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="an_graph2">
+                            <!--<div class="an_duData" id="totalDataId">
+                                <p><span name="period">&#45;&#45;</span>当中<br>
+                                    <span name="date" class="org">&#45;&#45;月&#45;&#45;日</span> 总学习时长最高<br>
+                                    达到 <span name="learnTime" class="org">&#45;&#45;分钟</span></p>
+                                <i class="assist">&lt;!&ndash; 此为文字垂直居中的必要标签，不可删 &ndash;&gt;</i>
+                            </div>-->
+                            <div id="totalLearnTimeId"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--------- 以上总学习时长 ---------->
+
+                <!--------- 平均学习时长 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">平均授课时长</span>
+                        <div class="hint">
+                            <i class="coursespace icon-questionStroke hintIco"></i>
+                            <i class="coursespace icon-questionFill hintIco"></i>
+                            <div class="hintTip">
+                                <span class="arrleft hintArr"></span>
+                                <div class="hintTip_con tj">注：查看周和月时，展示的是当天总学习时长/当天学习人数。查看年时，展示的是12个月中，每个月总学习时长/当月学习人数</div>
+                            </div>
+                        </div>
+                        <div class="an_modtit_right" style="padding-right:130px;">
+                            <div class="clearfix gridTabB-head">
+                                <ul>
+                                    <li class="gridTabB-tab gridTabB-first">
+                                        <a class="gridTabB-cur" id="gridTabB1" onclick="setTabs('gridTabB','1','3');" href="javascript:;">周</a>
+                                    </li>
+                                    <li class="gridTabB-tab">
+                                        <a id="gridTabB2" onclick="setTabs('gridTabB','2','3');" href="javascript:;">月</a>
+                                    </li>
+                                    <li class="gridTabB-tab">
+                                        <a id="gridTabB3" onclick="setTabs('gridTabB','3','3');" href="javascript:;">年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTabB-body">
+                        <div class="gridTabB-con" id="gridTabB-con-1" style="display:block;">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="avgWeekId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabB-con" id="gridTabB-con-2">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="avgMonthId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabB-con" id="gridTabB-con-3">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="avgYearId">
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="an_graph2">
+                            <!--<div class="an_duData" id="avgDataId">
+                                <p><span name="period">&#45;&#45;</span>当中<br>
+                                    <span name="date" class="org">&#45;&#45;月&#45;&#45;日</span> 平均学习时长最高<br>
+                                    达到 <span name="learnTime" class="org">&#45;&#45;分钟</span></p>
+                                <i class="assist">&lt;!&ndash; 此为文字垂直居中的必要标签，不可删 &ndash;&gt;</i>
+                            </div>-->
+                            <div id="avgLearnTimeId"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--------- 以上平均学习时长 ---------->
+
+                <!--------- 教师参与详细数据 ---------->
+                <div class="an_modIn dashboard" id="teacher_join_detial">
+                    <!--------- 标题 ---------->
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">教师参与详细数据</span>
+
+                    </div>
+
+                    <div class="an_searchWrap" style="padding-left: 20px;">
+                        <div class="clearfix an_search">
+                            <input type="text" id="video_search_data_id" style="width:255px;" class="an_input" placeholder="输入资源名称、课程名称或编码进行搜索">
+                            <input type="btn" value="搜索" id="video_search_id" readonly="readonly" class="an_btn">
+                            <!--<a class="an_btn" style="margin-left: 20px;" id="video_export" herf="javascript:void(0)">导出</a>-->
+                            <div style="float:right;position: relative;">
+                                <div class="myselect">
+                                    <input name="grade_name" type="text" id="teaching_semester" class="myselect_box course_style" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div style="width:100%;overflow-x:auto;overflow-y:hidden;">
+
+                        <!-- table head -->
+                        <div class="clearfix resdisTabl-head">
+                            <div class="resdisTabl-2">
+                                <ul class="clearfix">
+                                    <li class="resdisTabl-col resdisTabl-col4">
+                                        <span class="resdisTabl-txt">用户名</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-10">
+                                        <span class="resdisTabl-txt">姓名</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-10">
+                                        <span class="resdisTabl-txt">所授课程</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-10">
+                                        <span class="resdisTabl-txt">课程编号</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-5_6 detial_sort">
+                                        <span class="resdisTabl-txt" name="video_totalTime" style="cursor: pointer;">参与度<br>总积分</span>
+                                        <i class="coursespace icon-descending pd_rankArr "     name="video_totalTime" id="participation_integral"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-5_6 detial_sort">
+                                        <span class="resdisTabl-txt" name="video_clickNum" style="cursor: pointer;">作业<br>批改量</span>
+                                        <i class="coursespace icon-descending pd_rankArr "     name="video_clickNum" id="job_correction"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-5_6 detial_sort">
+                                        <span class="resdisTabl-txt" name="video_learnTime" style="cursor: pointer;">帖子<br>回复量</span>
+                                        <i class="coursespace icon-descending pd_rankArr "     name="video_learnTime" id="post_reply"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-5_6 detial_sort">
+                                        <span class="resdisTabl-txt" name="video_avgLearnClickTime" style="cursor: pointer;">设置精<br>华帖量</span>
+                                        <i class="coursespace icon-descending pd_rankArr "     name="video_avgLearnClickTime" id="set_essence"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-5_6 detial_sort">
+                                        <span class="resdisTabl-txt" name="video_avgLearnUserTime" style="cursor: pointer;">设置灌<br>水帖量</span>
+                                        <i class="coursespace icon-descending pd_rankArr "     name="video_avgLearnUserTime" id="set_lrrigation"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-5_6 detial_sort">
+                                        <span class="resdisTabl-txt" name="video_avgLearnRealTime" style="cursor: pointer;">置顶<br>帖量</span>
+                                        <i class="coursespace icon-descending pd_rankArr "     name="video_avgLearnRealTime" id="set_top"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-5_6 detial_sort">
+                                        <span class="resdisTabl-txt" name="video_noteNum" style="cursor: pointer;">笔记总<br>数(个)</span>
+                                        <i class="coursespace icon-descending pd_rankArr "     name="video_noteNum" id="notes_recommended"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-5_6 detial_sort">
+                                        <span class="resdisTabl-txt" name="video_noteNum" style="cursor: pointer;">答疑<br>回复数</span>
+                                        <i class="coursespace icon-descending pd_rankArr "     name="video_noteNum" id="answer_reply"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-5_6 detial_sort">
+                                        <span class="resdisTabl-txt" name="video_noteNum" style="cursor: pointer;">答疑<br>推荐数</span>
+                                        <i class="coursespace icon-descending pd_rankArr "  name="video_noteNum" id="answer_recommended"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-6_8_none detial_sort">
+                                        <span class="resdisTabl-txt">授课时长</span>
+                                        <i class="coursespace icon-descending pd_rankArr "  name="video_noteNum" id="teaching_time"></i>
+                                        <span class="assist"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="clearfix" id="manage_video_table_load">
+                            <iframe name="content_frame" marginwidth=0 marginheight=0 width=100% height=100% src="../../resource/stats/pager/loading.html" frameborder=0></iframe>
+                        </div>
+
+                        <!-- table tab -->
+                        <div class="tablTab clearfix" id="manage_video_table_data">
+                            <!-- tablTab head -->
+                            <div class="tablTab-head2">
+                                <ul id="manageVideoDetail">
+
+                                    <li class="tablTab-tab">
+                                        <div class="resdisTabl tablTab-cur tableTab">
+                                            <ul class="clearfix">
+                                                <li class="resdisTabl-col resdisTabl-col-99_none " name="checkLine">暂无数据
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- tablTab head end -->
+                        </div>
+
+                        <!-- 分页 -->
+                        <div class="pagin mt10 page-tools" id="teaching_page" style="margin: 10px auto;" ></div>
+                    </div>
+
+
+                    <!--------- 以上详情表格 ---------->
+                </div>
+                <!--------- 教师参与详细数据 ---------->
+
+            </div>
+            <!----------------------------- 以上学生活跃度分析 ------------------------------>
+
+
+        </div>
+    </div>
+    <!--------------------------------------------------
+    // 以上分析选项卡
+    -------------------------------------------------->
+
+</div>
+</body>
+</html>

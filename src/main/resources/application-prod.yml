@@ -1,0 +1,52 @@
+#custom:
+#  datasource:
+#    platform:
+#      url: jdbc:oracle:thin:@192.168.46.235:1521:orcl
+#      username: tyxlby1009
+#      password: whaty123
+#      driver-class-name: oracle.jdbc.OracleDriver
+#    learning:
+#      url: jdbc:mysql://192.168.46.235:3306/by_tylearning?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true
+#      username: root
+#      password: whaty123
+#      driver-class-name: com.mysql.jdbc.Driver
+
+spring:
+  datasource:
+#    url: jdbc:oracle:thin:@192.168.46.235:1521:orcl
+#    username: tyxlby1009
+#    password: whaty123
+#    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:mysql://192.168.148.29:33306/xl_data?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true
+    username: xl_data
+    password: lLJVmogEmu5UwKXJ
+    driver-class-name: com.mysql.jdbc.Driver
+  freemarker:
+    cache: false
+#  mail:
+#    host: smtp.exmail.qq.com
+#    username: RyanYin@whaty.com
+#    password: Whaty987654321
+#    properties:
+#      mail.smtp.auth: true
+#      mail.smtp.starttls.enable: true
+#      mail.smtp.starttls.required: true
+logging:
+  level:
+    root: error
+    com.ryan.framework.mapper: error
+
+mail:
+  host: mail.webtrn.cn
+  nickname: redmine
+  username: redmine@webtrn.cn
+  password: Whaty@redmine123
+  properties:
+    mail.smtp.auth: true
+    mail.smtp.starttls.enable: true
+    mail.smtp.starttls.required: true
+
+platform:
+  domain: http://xlda.webtrn.cn/data
+  img: /www/htdocs/webapps/xl_data/university-data/WEB-INF/classes/static/report/
+  phantomJS: /home/whaty/download/phantomjs-2.1.1-linux-x86_64/bin/phantomjs

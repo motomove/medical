@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+	<title>数据报告列表</title>
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="../../resource/report/scripts/html5shiv.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../resource/report/font/iconfont.css">
+	<link rel="stylesheet" href="../../resource/report/css/main.css">
+
+	<!--[if (gte IE 6)&(lte IE 8)]>
+	<script type="text/javascript" src="../../resource/report/scripts/selectivizr-min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../resource/front/css/user.css">
+	<script src="../../resource/report/scripts/jquery-1.12.4.min.js"></script>
+	<script src="../../resource/stats/scripts/statsCommon.js"></script>
+	<script src="../../resource/front/scripts/nav.js"></script>
+	<script src="../../resource/front/scripts/user.js"></script>
+	<script src="../../resource/common/js/device.js"></script>
+	<script src="../../resource/stats/scripts/manage/pageHeader.js"></script>
+	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+</head>
+
+<body>
+	<!--------------------------------------------------
+	// header
+	-------------------------------------------------->
+	<div class="header">
+		<div class="webWidth header-wrap clearfix">
+			<div class="pull-left logo"><img src="../../resource/report/images/logo.png" alt=""></div>
+			<div class="pull-right sitenav">
+				<div class="sitenav-wrap">
+					<ul class="clearfix">
+						<li class="sitenav-cell">
+							<a href="javascript:;" class="sitenav-link"><i class="xli icon-bell"></i><span>预警消息</span></a>
+						</li>
+						<li class="sitenav-cell">
+							<a href="#" class="sitenav-link user-link"><span><span id="nick_name">&nbsp;&nbsp;&nbsp;&nbsp;</span><i class="xli icon-lineArr-down"></i></span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--------------------------------------------------
+	// header end
+	-------------------------------------------------->
+
+	<div class="drop" id="user-drop">
+		<div class="drop-wrap">
+			<ul>
+				<li class="drop-list">
+					<a href="/data/logout" class="drop-link"><span class="drop-txt">退出</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!--------------------------------------------------
+	// nav
+	-------------------------------------------------->
+	<div class="nav" id="nav">
+		<div class="webWidth nav-wrap">
+			<ul class="clearfix">
+				<li class="nav-cell">
+					<a href="javascript:void(0);" class="nav-link" type="index">数据看板<span class="nav-bar"></span></a>
+				</li>
+				<li class="nav-cell">
+					<a href="javascript:void(0);" class="nav-link" type="base">基础分析<span class="nav-bar"></span></a>
+				</li>
+				<li class="nav-cell nav-cur">
+					<a href="javascript:void(0);" class="nav-link" type="report">数据报告<span class="nav-bar"></span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--------------------------------------------------
+	// nav end
+	-------------------------------------------------->
+	
+	
+	<!--------------------------------------------------
+	// main
+	-------------------------------------------------->
+	<div class="main">
+		<div class="webWidth main-wrap">
+			
+			<div class="report">
+				
+				<!---------- report search ---------->
+				<div class="report-search clearfix">
+					<div class="form-con">
+						<div class="input-wrap">
+							<span class="input-icon"><i class="xli icon-zoom"></i></span>
+							<input name="form-name" type="text" id="report_name_info" class="form-control" value="" placeholder="请输入名称关键字">
+						</div>
+					</div>
+					<div class="report-filter">
+						<ul class="clearfix">
+							<li class="report-filter-cell"><a href="javascript:;" onclick="queryReportDataType('0')" class="report-filter-link">周报</a></li>
+							<li class="report-filter-cell"><a href="javascript:;" onclick="queryReportDataType('1')" class="report-filter-link">月报</a></li>
+							<li class="report-filter-cell"><a href="javascript:;" onclick="queryReportDataType('2')" class="report-filter-link">年报</a></li>
+							<li class="report-filter-cell"><a href="javascript:;" onclick="queryReportType('0')" class="report-filter-link">运营</a></li>
+							<li class="report-filter-cell"><a href="javascript:;" onclick="queryReportType('1')" class="report-filter-link">招生</a></li>
+							<li class="report-filter-cell"><a href="javascript:;" onclick="queryReportType('2')" class="report-filter-link">财务</a></li>
+						</ul>
+					</div>
+					<a id="report_config" href="javascript:;" class="report-setting-icon" style="display: none;"><i class="xli icon-setting-stroke"></i></a>
+				</div>
+				<!---------- report search end ---------->
+
+				<div class="clearfix" id="report_list_table_load">
+					<iframe name="content_frame" marginwidth=0 marginheight=0 width=100% height=100% src="../../resource/stats/pager/loading.html" frameborder=0></iframe>
+				</div>
+
+				<!---------- report list ---------->
+				<div class="report-list" id="report_list_info_data">
+					<ul id="report_list_info"></ul>
+				</div>
+				<!---------- report list end ---------->
+				<input type="hidden" name="condition_report_name" id="condition_report_name" value="" />
+				<input type="hidden" name="condition_report_type" id="condition_report_type" value="" />
+				<input type="hidden" name="condition_report_dataType" id="condition_report_dataType" value="" />
+				<input type="hidden" name="condition_cur_page" id="condition_cur_page" value="" />
+				<input type="hidden" name="condition_total_page" id="condition_total_page" value="" />
+				<input type="hidden" name="condition_total_page" id="condition_total_number" value="" />
+				<!---------- pagination ---------->
+
+				<!-- 分页 -->
+				<div class="page-pagin">
+					<div class="pg report-pg pagin" id="report_list_page" style="margin: 10px auto;" ></div>
+				</div>
+
+				<!--<div class="pg report-pg">
+					<a href="#" class="pg-btn" id="home_page" onclick="queryConditionPage('homePage')">首页</a>
+					<a href="#" class="pg-btn" id="previous_page"  onclick="queryConditionPage('previousPage')"><i class="xli icon-lineArr-left"></i></a>
+					<a href="#" class="pg-btn" id="next_page"  onclick="queryConditionPage('nextPage')"><i class="xli icon-lineArr-right"></i></a>
+					<a href="#" class="pg-btn" id="last_page"  onclick="queryConditionPage('lastPage')">尾页</a>
+					<span class="pg-txt" id="cur_total_page"></span>
+				</div>-->
+				<!---------- pagination end ---------->
+			</div>
+			
+		</div>
+	</div>
+	<!--------------------------------------------------
+	// main end
+	-------------------------------------------------->
+	
+	
+	<!--------------------------------------------------
+	// footer
+	-------------------------------------------------->
+	<div class="footer">
+		<div class="webWidth footer-wrap">
+			<p class="footer-text">技术支持：北京网梯科技发展有限公司 经营许可证编号：京ICP备08101962号-51<br></p>
+			<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802023942" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+				<img src="../../resource/front/images/record_logo.png" style="float:left;">
+				<p class="footer-text" style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; ">
+					京公网安备 11010802023942号
+				</p>
+			</a>
+		</div>
+	</div>
+	<!--------------------------------------------------
+	// footer end
+	-------------------------------------------------->
+</body>
+<script src="../../resource/report/scripts/reportList.js"></script>
+</html>

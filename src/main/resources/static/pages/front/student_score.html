@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../resource/stats/jquery-easyui-1.4.3/themes/gray/easyui.css">
+    <script src="../../resource/stats/scripts/jquery-1.12.4.min.js"></script>
+    <script src="../../resource/stats/scripts/manage/commonHeader.js"></script>
+    <script src="../../resource/stats/scripts/manage/pageHeader.js"></script>
+    <script src="../../resource/stats/jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+    <script src="../../resource/stats/scripts/manage/manageStatsScoreInfo.js"></script>
+</head>
+
+<body class="bg_eb">
+<br>
+<div class="webMinWidth" style="margin: -22px auto -28px auto">
+    <!--------------------------------------------------
+    // 分析选项卡
+    -------------------------------------------------->
+    <div class="an_box">
+        <div class="anTab-body">
+            <!----------------------------- 成绩情况 ------------------------------>
+            <div class="anTab-con" id="anTab-con-1" style="display:block;">
+
+                <!--------- 课程成绩分析 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">课程成绩分析</span>
+                        <div class="an_modtit_right">
+                            <div class="myselect">
+                                <input name="grade_name" type="text" id="student_ct_semester" class="myselect_box course_style" value="">
+                            </div>
+                        </div>
+
+                        <div class="hint ml5">
+                            <i class="coursespace icon-questionStroke hintIco"></i>
+                            <i class="coursespace icon-questionFill hintIco"></i>
+                            <div class="hintTip">
+                                <span class="arrleft hintArr"></span>
+                                <div class="hintTip_con tj" style="width:470px;">
+                                    注：统计各课程成绩分布在0-20、20-40、40-60、60-80、80-100各分数段的人数情况。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="an_graph1" id="manage_socre_situation">
+                    </div>
+                    <div class="pagin" id="pagin">
+                        <a href="javaScript:void(0);" class="pagin-link " id="pagin_first_page"><i class="coursespace ">首页</i></a>
+                        <a href="javaScript:void(0);" class="pagin-link pagin-disable" id="pagin_top_next"><i class="coursespace icon-arrleft"></i></a>
+                        <a href="javaScript:void(0);" class="pagin-link pagin-disable" id="pagin_bottom_next"><i class="coursespace icon-arrright"></i></a>
+                        <a href="javaScript:void(0);" class="pagin-link " id="pagin_last_page"><i class="coursespace ">尾页</i></a>
+                        <span class="pagin-txt">当前页&nbsp;&nbsp;<span id="pagin_curpage">1</span>&nbsp;&nbsp;/&nbsp;&nbsp;<span id="pagin_totalPage">0</span>&nbsp;&nbsp;页  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共<span id="pagin_totalCount">0</span>条</span>
+                    </div>
+                </div>
+                <!--------- 课程成绩分析 ---------->
+
+                <!--------- 学习中心平均成绩 ---------->
+                <div class="an_modIn" >
+                    <!--------- 标题 ---------->
+                    <div class="rel p0_20">
+                        <div class="an_modtit">
+                            <span class="an_modtit_txt">学习中心平均成绩</span>
+                            <div class="an_modtit_right">
+                                <div class="myselect">
+                                    <input name="grade_name" type="text" id="student_site_semester" class="myselect_box course_style" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--------- 以上标题 ---------->
+
+                    <div style="width:100%;overflow-x:auto;overflow-y:hidden;">
+
+                        <!-- table head -->
+                        <div class="clearfix resdisTabl-head">
+                            <div class="resdisTabl-2">
+                                <ul class="clearfix">
+                                    <li class="resdisTabl-col resdisTabl-col-44">
+                                        <span class="resdisTabl-txt">学习中心</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-14">
+                                        <span class="resdisTabl-txt">通过率</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-14">
+                                        <span class="resdisTabl-txt">优秀率</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-14">
+                                        <span class="resdisTabl-txt">平均成绩</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-9_none">
+                                        <span class="resdisTabl-txt">排名</span>
+                                        <span class="assist"></span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="clearfix" id="student_site_score_loading">
+                            <iframe name="content_frame" marginwidth=0 marginheight=0 width=100% height=100% src="../../resource/stats/pager/loading.html" frameborder=0></iframe>
+                        </div>
+
+                        <!-- table tab -->
+                        <div class="tablTab clearfix" id="student_site_score_data">
+                            <!-- tablTab head -->
+                            <div class="tablTab-head2">
+                                <ul id="student_site_score_val">
+
+                                    <li class="tablTab-tab">
+                                        <div class="resdisTabl tablTab-cur tableTab">
+                                            <ul class="clearfix">
+                                                <li class="resdisTabl-col resdisTabl-col-99_none " name="checkLine">暂无数据
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- tablTab head end -->
+                        </div>
+
+                        <!-- 分页 -->
+                        <div class="pagin mt10 page-tools" id="student_site_score_page" style="margin: 10px auto;" ></div>
+                    </div>
+
+
+                    <!--------- 以上详情表格 ---------->
+                </div>
+                <!--------- 学习中心平均成绩 ---------->
+
+                <!--------- 专业平均成绩 ---------->
+                <div class="an_modIn" >
+                    <!--------- 标题 ---------->
+                    <div class="rel p0_20">
+                        <div class="an_modtit">
+                            <span class="an_modtit_txt">专业平均成绩</span>
+                            <div class="an_modtit_right" >
+                                <div class="myselect">
+                                    <input name="grade_name" type="text" id="student_major_semester" class="myselect_box course_style" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--------- 以上标题 ---------->
+
+                    <div style="width:100%;overflow-x:auto;overflow-y:hidden;">
+
+                        <!-- table head -->
+                        <div class="clearfix resdisTabl-head" >
+                            <div class="resdisTabl-2">
+                                <ul class="clearfix">
+                                    <li class="resdisTabl-col resdisTabl-col-44">
+                                        <span class="resdisTabl-txt">专业</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-14">
+                                        <span class="resdisTabl-txt">通过率</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-14">
+                                        <span class="resdisTabl-txt">优秀率</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-14">
+                                        <span class="resdisTabl-txt">平均成绩</span>
+                                        <span class="assist"></span>
+                                    </li>
+                                    <li class="resdisTabl-col resdisTabl-col-9_none">
+                                        <span class="resdisTabl-txt">排名</span>
+                                        <span class="assist"></span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="clearfix" id="student_major_score_loading">
+                            <iframe name="content_frame" marginwidth=0 marginheight=0 width=100% height=100% src="../../resource/stats/pager/loading.html" frameborder=0></iframe>
+                        </div>
+
+                        <!-- table tab -->
+                        <div class="tablTab clearfix" id="student_major_score_data">
+                            <!-- tablTab head -->
+                            <div class="tablTab-head2">
+                                <ul id="student_major_score_val">
+
+                                    <li class="tablTab-tab">
+                                        <div class="resdisTabl tablTab-cur tableTab">
+                                            <ul class="clearfix">
+                                                <li class="resdisTabl-col resdisTabl-col-99_none " name="checkLine">暂无数据
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- tablTab head end -->
+                        </div>
+
+                        <!-- 分页 -->
+                        <div class="pagin mt10 page-tools" id="student_major_score_page" style="margin: 10px auto;" ></div>
+                    </div>
+
+
+                    <!--------- 以上详情表格 ---------->
+                </div>
+                <!--------- 专业平均成绩 ---------->
+
+                <!--------- 平均成绩趋势 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">平均成绩趋势</span>
+
+                        <div class="an_modtit_right" >
+                            <div class="myselect">
+                                <input name="course_name" type="text" id="edu" class="myselect_box course_style" value="">
+                                <input name="course_name" type="text" id="major" class="myselect_box course_style" value="">
+                                <input name="course_name" type="text" id="site" class="myselect_box course_style" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTabLMA-body">
+                        <div class="an_graph1" id="manageVideoLearn"></div>
+                    </div>
+                </div>
+                <!--------- 平均成绩趋势 ---------->
+            </div>
+            <!----------------------------- 以上成绩情况 ------------------------------>
+
+        </div>
+    </div>
+    <!--------------------------------------------------
+    // 以上分析选项卡
+    -------------------------------------------------->
+
+</div>
+
+<br>
+</body>
+</html>

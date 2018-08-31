@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>学历数据分析</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript"  src="../resource/common/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <link type="text/css" rel="stylesheet" href="../resource/login/font/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="../resource/login/css/main.css">
+    <link type="text/css" rel="stylesheet" href="../resource/login/css/login.css"  />
+    <link type="text/css" rel="stylesheet" href="../resource/login/refresh/iconfont.css"  />
+</head>
+
+<body class="login-bg login-bg-1">
+
+
+<!--------------------
+// login
+-------------------->
+<div class="login">
+    <div class="login-wrap">
+
+        <!---------- logo ---------->
+        <div class="login-logo">
+            <!--<span class="login-logo-img"><img src="../resource/login/images/logo.png" alt=""></span>
+            <span class="login-logo-split"></span>-->
+            <span class="login-logo-name">学历数据分析</span>
+        </div>
+        <!---------- logo end ---------->
+
+        <!---------- panel ---------->
+        <div class="login-panel">
+            <div class="login-panel-wrap">
+                <div class="loginTab" id="loginTab">
+                    <div class="loginTab-head">
+                        <ul class="clearfix">
+                            <li class="loginTab-tab"><a href="javascript:;" class="loginTab-link loginTab-cur"><span>密码登录</span></a></li>
+                            <!--<li class="loginTab-tab"><a href="javascript:;" class="loginTab-link"><span>扫码登录</span></a></li>-->
+                            <span class="loginTab-curbar"></span>
+                        </ul>
+                    </div>
+                    <div class="loginTab-body">
+
+                        <!-- 密码登录 -->
+                        <div class="loginTab-con">
+                            <form action="/data/login" method="post">
+                            <div class="login-hint">
+                                <div class="login-hint-wrap">
+                                    <span class="login-hint-icon"><i class="mng icon-exclam-fill"></i></span>
+                                    <span class="login-hint-text">用户名或密码错误</span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <!--input-->
+                                <div class="form-con">
+                                    <div class="input-wrap input-hasicon">
+                                        <span class="input-icon"><i class="mng icon-login-user-fill"></i></span>
+                                        <input name="username" type="text" onFocus="select();" class="form-control" value="" placeholder="用户名">
+                                    </div>
+                                </div>
+                                <!--input end-->
+                            </div>
+                            <div class="form-row">
+                                <!--input-->
+                                <div class="form-con">
+                                    <div class="input-wrap input-hasicon">
+                                        <span class="input-icon"><i class="mng icon-login-lock-fill"></i></span>
+                                        <input name="password" type="password" onFocus="select();" class="form-control" value="" placeholder="密码">
+                                        <i class="iconfont show-password-icon icon-invisible"></i>
+                                    </div>
+                                </div>
+                                <!--input end-->
+                            </div>
+                            <div class="form-row">
+                                <!--input-->
+                                <!--<div class="form-con">-->
+                                    <!--<div class="input-wrap input-hasicon">-->
+                                        <!--<span class="input-icon"><i class="mng icon-login-shield-fill"></i></span>-->
+                                        <!--<span class="input-code"><img src="images/code.png" alt=""></span>-->
+                                        <!--<input name="form-name" type="text" onFocus="select();" class="form-control" value="" placeholder="输入验证码">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <div class="form-inline-input">
+                                    <div class="code-box" id="code-box">
+                                        <input type="text" name="code" class="code-input" />
+                                        <p></p>
+                                        <span id="slider">>>></span>
+                                        <div class="slider-block">请按住滑块，拖动到最右边</div>
+                                    </div>
+                                </div>
+                                <!--input end-->
+                            </div>
+                            <div class="form-row">
+                                <div class="form-con">
+                                    <input type="submit" class="btn btn-solid" value="登录">
+                                </div>
+                            </div>
+                            <div class="form-row login-link-row">
+                                <!--<ul class="clearfix">
+                                    <li class="col-2"><a href="javascript:;" class="link-normal">忘记用户名</a></li>
+                                    <li class="col-2"><a href="javascript:;" class="link-normal">忘记密码</a></li>
+                                </ul>-->
+                            </div>
+                            </form>
+                        </div>
+                        <!-- 以上密码登录 -->
+
+                        <!-- 扫码登录 -->
+                        <div class="loginTab-con">
+                            <!--<div class="login-qr">
+                                <div class="login-qr-img"><img src="../resource/login/images/qr.png" alt=""></div>
+                                <div class="login-qr-info">打开微信，扫描二维码</div>
+                                <div class="login-feature">
+                                    <ul class="clearfix">
+                                        <li class="login-feature-cell col-3">
+                                            <div class="login-feature-wrap"><span class="login-feature-icon"><i class="mng icon-input-stroke"></i></span><span class="login-feature-text">免输入</span></div>
+                                        </li>
+                                        <li class="login-feature-cell col-3"><span class="login-feature-icon"><i class="mng icon-light-stroke"></i></span><span class="login-feature-text">更快</span></li>
+                                        <li class="login-feature-cell col-3"><span class="login-feature-icon"><i class="mng icon-shield-stroke"></i></span><span class="login-feature-text">更安全</span></li>
+                                    </ul>
+                                </div>
+                            </div>-->
+                        </div>
+                        <!-- 以上扫码登录 -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---------- panel end ---------->
+
+        <!---------- foot ---------->
+        <div class="login-foot" style="color: beige;">
+            技术支持：北京网梯科技发展有限公司 经营许可证编号：京ICP备08101962号-51<br>
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802023942" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+                <img src="../resource/front/images/record_logo.png" style="float:left;">
+                <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:beige;">
+                    京公网安备 11010802023942号
+                </p>
+            </a>
+        </div>
+        <!---------- foot end ---------->
+    </div>
+</div>
+<!--------------------
+// login end
+-------------------->
+<script src="../resource/common/js/plugins/jquery/jquery-1.12.4.min.js"></script>
+<script src="../resource/login/js/layout.js"></script>
+<script src="../resource/login/js/login.js"></script>
+</body>
+</html>

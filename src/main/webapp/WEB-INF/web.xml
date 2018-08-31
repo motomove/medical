@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+
+    <!--通用安全过滤器-->
+    <filter>
+        <filter-name>whatySecurityFilter</filter-name>
+        <filter-class>com.whaty.framework.common.filter.WhatySecurityFilter</filter-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/classes/whatysecurity.properties</param-value>
+        </init-param>
+        <init-param>
+            <param-name>rule</param-name>
+            <param-value>WEB-INF/classes/whatysecurity.xml</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>whatySecurityFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!--<filter>
+        <filter-name>LoginAuthenticationFilter</filter-name>
+        <filter-class>LoginAuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginAuthenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+
+    <!--动态数据源过滤器-->
+    <!--<filter>-->
+        <!--<filter-name>dynamicDataSourceFilter</filter-name>-->
+        <!--<filter-class>com.ryan.framework.web.filter.DynamicDataSourceFilter</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>dynamicDataSourceFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <!--线程绑定数据过滤器-->
+    <!--<filter>
+        <filter-name>threadLocalDataFilter</filter-name>
+        <filter-class>
+            ThreadLocalDataFilter
+        </filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>threadLocalDataFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+
+    <!--<filter>
+        &lt;!&ndash;suppress ServletWithoutMappingInspection &ndash;&gt;
+        <filter-name>tomcatShutdownFilter</filter-name>
+        <filter-class>TomcatShutdownFilter</filter-class>
+    </filter>-->
+    <welcome-file-list>
+        <welcome-file>/pages/front/index.html</welcome-file>
+    </welcome-file-list>
+</web-app>

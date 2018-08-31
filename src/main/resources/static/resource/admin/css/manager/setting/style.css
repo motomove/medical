@@ -1,0 +1,39 @@
+html{color:#000;background:#FFF;} 
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form, 
+fieldset,input,textarea,p,blockquote,th,td { 
+margin:0; 
+padding:0; 
+}
+div{display: block;}
+body{margin:0px;padding:0px;background:#eff0f4;}
+.main{margin:0 auto;background:#f2f2f2;width:700px;border:1px solid #767779;min-height:700px;font-size:14px;padding-bottom:50px;}
+.top{width:690px;height:30px;background:#d7d7d7;line-height:30px;padding-left:10px;}
+.main_address{margin-top:20px;padding-left:50px;font-size:14px;color:#a5a5a5;}
+
+.mian_logo{margin-top:20px;padding-left:50px;font-size:14px;color:#a5a5a5;}
+.logo_image{padding-left:50px;padding-top:20px;width:100px;height:101px;} 
+.logo_message {padding-left:20px;padding-top:30px;font-size:12px;}
+.logo_image_show {width:180px;height:100px;padding-top:10px;}
+.logo_image_style{width:218px;height:38px;}
+.mian_adware {margin-top:50px;padding-left:50px;font-size:14px;color:#a5a5a5;}
+
+.adware_all{width:551px;}
+.adware_content{padding-left:50px;padding-top:20px;}
+.adware_image{width:100px;height:152px;padding-left:70px;float:left;width:200px;}
+.adware_message{padding-left:90px;font-size:12px;padding-top:10px;clear:left;}
+.adware_address_content {padding-left:70px;padding-top:40px;width:480px;height:25px;}
+.adware_address_content_input {padding-left:10px;width:200px;height:25px;border:1px solid #000;float:left;margin-right:25px;}
+.adware_add_content {padding-top:30px;color:#05107c;font-size:12px;cursor:pointer;}
+.adware_close {width:500px;height:18px;}
+
+.mian_foot {margin-top:50px;padding-left:50px;font-size:14px;color:#a5a5a5;height:256px;}
+.baidu_edit {padding-left:30px;padding-top:20px;}
+.foot_edit_content {width:532px;height:100px;}
+
+.main_button {margin-top:20px;text-align:center;border-radius:15px;-moz-border-radius: 15px; -webkit-border-radius: 15px;}
+.main_button button {width:140px;height:40px;margin-left:50px;color:#000;border:0px;font-size:18px;}
+.main_button_save { background-color:#169bd4;}
+.cancel_button_color {background-color:#fff;color:#000;border:1px solid #000;}
+
+.p_centent {padding-top:10px;}
+.p_text {text-align:center;color: #000;}

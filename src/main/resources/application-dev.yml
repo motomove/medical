@@ -1,0 +1,52 @@
+#custom:
+#  datasource:
+#    platform:
+#      url: jdbc:oracle:thin:@192.168.46.235:1521:orcl
+#      username: tyxlby1009
+#      password: whaty123
+#      driver-class-name: oracle.jdbc.OracleDriver
+#    learning:
+#      url: jdbc:mysql://192.168.46.235:3306/by_tylearning?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true
+#      username: root
+#      password: whaty123
+#      driver-class-name: com.mysql.jdbc.Driver
+
+spring:
+  datasource:
+#    url: jdbc:oracle:thin:@192.168.46.235:1521:orcl
+#    username: tyxlby1009
+#    password: whaty123
+#    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:mysql://192.168.46.81:3306/xl_data?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true
+    username: root
+    password: whaty123
+    driver-class-name: com.mysql.jdbc.Driver
+  freemarker:
+    cache: false
+
+logging:
+  level:
+    root: info
+    com.ryan.framework.mapper: debug
+
+mail:
+  host: mail.webtrn.cn
+  nickname: redmine
+  username: redmine@webtrn.cn
+  password: Whaty@redmine123
+  properties:
+    mail.smtp.auth: true
+    mail.smtp.starttls.enable: true
+    mail.smtp.starttls.required: true
+
+platform:
+  domain: http://192.168.46.248:8084/data
+  img: /home/whaty/workspace/whaty/product/university-data/src/main/resources/static/report/
+  phantomJS: /home/whaty/download/phantomjs-2.1.1-linux-x86_64/bin/phantomjs
+
+security:
+  basic:
+    enabled: false
+  user:
+    name: whaty
+    password: whaty

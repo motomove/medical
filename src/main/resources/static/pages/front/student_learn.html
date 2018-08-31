@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../resource/stats/jquery-easyui-1.4.3/themes/gray/easyui.css">
+    <script src="../../resource/stats/scripts/jquery-1.12.4.min.js"></script>
+    <script src="../../resource/stats/scripts/manage/commonHeader.js"></script>
+    <script src="../../resource/stats/scripts/manage/manageStatsActive.js"></script>
+    <script src="../../resource/stats/jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+    <script src="../../resource/common/js/device.js"></script>
+</head>
+
+<body class="bg_eb">
+<div class="webMinWidth" style="margin: 0px auto">
+
+
+    <!--------------------------------------------------
+    // 分析选项卡
+    -------------------------------------------------->
+    <div class="an_box">
+        <div class="anTab-body">
+
+
+            <!----------------------------- 学生活跃度分析 ------------------------------>
+            <div class="anTab-con" id="anTab-con-1" style="display:block;">
+
+                <!--------- 总学习时长 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">总学习时长</span>
+
+                        <div class="an_modtit_right" style="padding-right:130px;">
+                            <div class="clearfix gridTab-head">
+                                <ul>
+                                    <li class="gridTab-tab gridTab-first">
+                                        <a class="gridTab-cur" id="gridTab1" onclick="setTabs('gridTab','1','3');" href="javascript:;">周</a>
+                                    </li>
+                                    <li class="gridTab-tab">
+                                        <a id="gridTab2" onclick="setTabs('gridTab','2','3');" href="javascript:;">月</a>
+                                    </li>
+                                    <li class="gridTab-tab">
+                                        <a id="gridTab3" onclick="setTabs('gridTab','3','3');" href="javascript:;">年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTab-body">
+                        <div class="gridTab-con" id="gridTab-con-1" style="display:block;">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="totalWeekId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTab-con" id="gridTab-con-2">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="totalMonthId">
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTab-con" id="gridTab-con-3">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="totalYearId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="an_graph2">
+                            <!--<div class="an_duData" id="totalDataId">
+                                <p><span name="period">&#45;&#45;</span>当中<br>
+                                    <span name="date" class="org">&#45;&#45;月&#45;&#45;日</span> 总学习时长最高<br>
+                                    达到 <span name="learnTime" class="org">&#45;&#45;分钟</span></p>
+                                <i class="assist">&lt;!&ndash; 此为文字垂直居中的必要标签，不可删 &ndash;&gt;</i>
+                            </div>-->
+                            <div id="totalLearnTimeId"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--------- 以上总学习时长 ---------->
+
+                <!--------- 平均学习时长 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">平均学习时长</span>
+                        <div class="hint">
+                            <i class="coursespace icon-questionStroke hintIco"></i>
+                            <i class="coursespace icon-questionFill hintIco"></i>
+                            <div class="hintTip">
+                                <span class="arrleft hintArr"></span>
+                                <div class="hintTip_con tj">注：查看周和月时，展示的是当天总学习时长/当天学习人数。查看年时，展示的是12个月中，每个月总学习时长/当月学习人数</div>
+                            </div>
+                        </div>
+                        <div class="an_modtit_right" style="padding-right:130px;">
+                            <div class="clearfix gridTabB-head">
+                                <ul>
+                                    <li class="gridTabB-tab gridTabB-first">
+                                        <a class="gridTabB-cur" id="gridTabB1" onclick="setTabs('gridTabB','1','3');" href="javascript:;">周</a>
+                                    </li>
+                                    <li class="gridTabB-tab">
+                                        <a id="gridTabB2" onclick="setTabs('gridTabB','2','3');" href="javascript:;">月</a>
+                                    </li>
+                                    <li class="gridTabB-tab">
+                                        <a id="gridTabB3" onclick="setTabs('gridTabB','3','3');" href="javascript:;">年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTabB-body">
+                        <div class="gridTabB-con" id="gridTabB-con-1" style="display:block;">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="avgWeekId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabB-con" id="gridTabB-con-2">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="avgMonthId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabB-con" id="gridTabB-con-3">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="avgYearId">
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="an_graph2">
+                            <!--<div class="an_duData" id="avgDataId">
+                                <p><span name="period">&#45;&#45;</span>当中<br>
+                                    <span name="date" class="org">&#45;&#45;月&#45;&#45;日</span> 平均学习时长最高<br>
+                                    达到 <span name="learnTime" class="org">&#45;&#45;分钟</span></p>
+                                <i class="assist">&lt;!&ndash; 此为文字垂直居中的必要标签，不可删 &ndash;&gt;</i>
+                            </div>-->
+                            <div id="avgLearnTimeId"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--------- 以上平均学习时长 ---------->
+
+                <!--------- 学习时长分布 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">学习时长分布</span>
+                        <!----------
+                        // 提示说明
+                        ---------->
+                        <div class="hint ml5">
+                            <i class="coursespace icon-questionStroke hintIco"></i>
+                            <i class="coursespace icon-questionFill hintIco"></i>
+                            <div class="hintTip">
+                                <span class="arrleft hintArr"></span>
+                                <div class="hintTip_con tj">注：统计学习时长分布在4个不同时间段内的学习人数。</div>
+                            </div>
+                        </div>
+                        <!----------
+                        // 以上提示说明
+                        ---------->
+
+                        <div class="an_modtit_right" style="padding-right:130px;">
+                            <div class="clearfix gridTabC-head">
+                                <ul>
+                                    <li class="gridTabC-tab gridTabC-first">
+                                        <a class="gridTabC-cur" id="gridTabC1" onclick="setTabs('gridTabC','1','3');" href="javascript:;">周</a>
+                                    </li>
+                                    <li class="gridTabC-tab">
+                                        <a id="gridTabC2" onclick="setTabs('gridTabC','2','3');" href="javascript:;">月</a>
+                                    </li>
+                                    <li class="gridTabC-tab">
+                                        <a id="gridTabC3" onclick="setTabs('gridTabC','3','3');" href="javascript:;">年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTabC-body">
+                        <div class="gridTabC-con" id="gridTabC-con-1" style="display:block;">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="learnTimeCalendarWeekId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabC-con" id="gridTabC-con-2">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="learnTimeCalendarMonthId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridTabC-con" id="gridTabC-con-3">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="learnTimeCalendarYearId">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="an_graph1">
+                            <div id="learnTimeCalendarId">
+                            </div>
+                            <p class="an_info2 mt15" id="calendarDataId">注：此项每个圆代表 <span name="period">一天</span>中
+                                学习时长分布在0-1分钟、1-10分钟、10-30分钟、30分钟以上4个范围的学生人数</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!--------- 以上学习时长分布 ---------->
+
+                <!--------- 学习时间段分布-折线图 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">学习时间段分布</span>
+                        <!----------
+                        // 提示说明
+                        ---------->
+                        <div class="hint">
+                            <i class="coursespace icon-questionStroke hintIco"></i>
+                            <i class="coursespace icon-questionFill hintIco"></i>
+                            <div class="hintTip">
+                                <span class="arrleft hintArr"></span>
+                                <div class="hintTip_con tj">注：折线图中切换周、月、年时，查看的是按周、月、年统计一天中24个时间段的的平均学习人数。</div>
+                            </div>
+                        </div>
+                        <div class="an_modtit_right" style="padding-right:130px;">
+                            <div class="clearfix gridTabF-head">
+                                <ul>
+                                    <li class="gridTabF-tab gridTabF-first">
+                                        <a class="gridTabF-cur" id="gridTabF1" onclick="setTabs('gridTabF','1','3');" href="javascript:;">周</a>
+                                    </li>
+                                    <li class="gridTabF-tab">
+                                        <a id="gridTabF2" onclick="setTabs('gridTabF','2','3');" href="javascript:;">月</a>
+                                    </li>
+                                    <li class="gridTabF-tab">
+                                        <a id="gridTabF3" onclick="setTabs('gridTabF','3','3');" href="javascript:;">年</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gridTabF-body">
+                        <div class="gridTabF-con" id="gridTabF-con-1" style="display:block;">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="learnPointWeekId">
+                                        <select>
+                                            <option>5月1日-5月7日</option>
+                                            <option>5月8日-5月14日</option>
+                                        </select>
+                                    </span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="gridTabF-con" id="gridTabF-con-2">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="learnPointMonthId">
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="gridTabF-con" id="gridTabF-con-3">
+                            <div class="an_graph1">
+                                <div class="myselect">
+                                    <span class="myselect_box" id="learnPointYearId">
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="an_graph2">
+                            <!--<div class="an_duData" id="learnPointDataId">
+                                <p><span name="period">&#45;&#45;</span>当中<br>
+                                    <span name="date" class="org">&#45;&#45; - &#45;&#45;</span>此时间段<br>
+                                    平均学习人数达到最高<br>
+                                    达到 <span name="learnNum" class="org">3450人</span></p>
+                                <i class="assist">&lt;!&ndash; 此为文字垂直居中的必要标签，不可删 &ndash;&gt;</i>
+                            </div>-->
+                            <div id="learnPointId"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--------- 以上学习时间段分布-折线图 ---------->
+
+                <!--------- 课程学习总用时 ---------->
+                <div class="an_modIn">
+                    <div class="an_modtit">
+                        <span class="an_modtit_txt">课程学习总用时</span>
+                        <div class="an_modtit_right" >
+                            <div class="myselect">
+                                <input name="grade_name" type="text" id="student_ct_semester" class="myselect_box course_style" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gridTabD-body">
+                        <div class="an_graph2">
+                            <!--<div class="an_duData" id="learnTimeByCourseDataId">
+                                <p><span name="course" class="com_color">&#45;&#45;</span>这门课程学习总用时达到最高<br>
+                                    <span name="learnTime" class="org">&#45;&#45;</span></p>
+                                <i class="assist">&lt;!&ndash; 此为文字垂直居中的必要标签，不可删 &ndash;&gt;</i>
+                            </div>-->
+                            <div id="learnTimeByCourseId"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--------- 以上课程学习总用时 ---------->
+            </div>
+            <!----------------------------- 以上学生活跃度分析 ------------------------------>
+
+
+        </div>
+    </div>
+    <!--------------------------------------------------
+    // 以上分析选项卡
+    -------------------------------------------------->
+
+</div>
+</body>
+</html>
