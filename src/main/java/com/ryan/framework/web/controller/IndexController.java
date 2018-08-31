@@ -34,7 +34,7 @@ public class IndexController extends BaseController {
 
     @GetMapping("")
     public String index() {
-        return "redirect:/pages/front/index.html";
+        return "index";
     }
 
     @GetMapping("/wechat")

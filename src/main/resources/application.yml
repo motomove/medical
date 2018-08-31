@@ -31,10 +31,12 @@ spring:
   mvc:
     favicon:
       enabled: false
-#    view:
-#      prefix: /
-#      suffix: .html
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
   freemarker:
+    enabled: false
+    cache: false
     request-context-attribute: rc # Name of the RequestContext attribute for all views.
 #    settings:
       #datetime_format: yyyy-MM-dd HH:mm:ss
@@ -46,8 +48,7 @@ spring:
 mybatis:
   type-aliases-package: com.ryan.framework.domain
   mapper-locations:
-    - classpath:com/whaty/data/mapper/*.xml
-    - classpath:com/whaty/job/mapper/*.xml
+    - classpath:com/ryan/framework/mapper/*.xml
   configuration:
     lazyLoadingEnabled: true #懒加载开关
     aggressiveLazyLoading: false #设置为按需加载

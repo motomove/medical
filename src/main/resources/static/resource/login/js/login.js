@@ -5,7 +5,7 @@ $(function () {
 
     $('#code-box').on('click', "#error-refresh", function () {
         codefn.resetCode();
-        $.getJSON('/data/code/qcode.do', {w:w},function (data) {
+        $.getJSON('/code/qcode.do', {w:w},function (data) {
             codefn.setCode(data.data);
         });
 
@@ -16,7 +16,7 @@ $(function () {
      * 加载验证码
      */
     function qcode(){
-        $.getJSON('/data/code/qcode.do', {w:w},function (data) {
+        $.getJSON('/code/qcode.do', {w:w},function (data) {
             codefn = new moveCode(data.data);
         });
     }
@@ -28,7 +28,7 @@ $(function () {
      * @param code
      */
     function analyze(len, code, callback){
-        $.getJSON('/data/code/analyze.do', {w:len, code:code},callback);
+        $.getJSON('/code/analyze.do', {w:len, code:code},callback);
     }
 
     //获取元素距离页面边缘的距离
