@@ -1,0 +1,39 @@
+0:
+  name: 工作台
+  icon: fa fa-dashboard
+  perms: core:homepage:welcome,core:nav
+0-0:
+  name: 后台首页
+  url: core/homepage/welcome.do
+  perms: core:homepage:welcome
+0-100:
+  name: 文档管理
+  url: core/info/list.do,core/info/left.do
+  perms: core:homepage:environment
+0-200:
+  name: homepage.notification
+  url: core/homepage/notification_list.do
+  perms: core:homepage:notification:list
+  ops:
+    - delete@core:homepage:notification:delete
+0-300:
+  name: homepage.message
+  url: core/homepage/message_list.do
+  perms: core:homepage:message:list
+  ops:
+    - message.send.form@core:homepage:message:send:form
+    - message.send@core:homepage:message:send
+    - delete@core:homepage:message:delete
+0-400:
+  name: homepage.mailInbox
+  url: core/homepage/mail_inbox_list.do
+  perms: core:homepage:mail_inbox:list
+  ops:
+    - show@core:homepage:mail_inbox:show
+    - delete@core:homepage:mail_inbox:delete
+0-500:
+  name: homepage.personal
+  url: core/homepage/personal_edit.do
+  perms: core:homepage:personal:edit
+  ops:
+    - update@core:homepage:personal:update

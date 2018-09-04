@@ -14,15 +14,15 @@
   <meta name="renderer" content="webkit">
   <!-- <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
   <script>if(top!=this){top.location=this.location;}</script>
-  <link rel="stylesheet" href="${ctx}/static/vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="${ctx}/static/vendor/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="${ctx}/static/vendor/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="${ctx}/static/vendor/adminlte/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="${ctx}/static/vendor/adminlte/css/skins/skin-blue.min.css">
-  <link rel="stylesheet" href="${ctx}/static/css/main.css">
+  <link rel="stylesheet" href="${ctx}/resource/cms/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="${ctx}/resource/cms/vendor/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="${ctx}/resource/cms/vendor/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="${ctx}/resource/cms/vendor/adminlte/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="${ctx}/resource/cms/vendor/adminlte/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="${ctx}/resource/cms/css/main.css">
   <!--[if lt IE 9]>
-  <script src="${ctx}/static/vendor/html5shiv/html5shiv.min.js"></script>
-  <script src="${ctx}/static/vendor/respond/respond.min.js"></script>
+  <script src="${ctx}/resource/cms/vendor/html5shiv/html5shiv.min.js"></script>
+  <script src="${ctx}/resource/cms/vendor/respond/respond.min.js"></script>
   <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -34,7 +34,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b></b>CMS</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>jspX</b>CMS</span>
+      <span class="logo-lg">CMS</span>
     </a>
 
     <!-- Header Navbar -->
@@ -67,7 +67,7 @@
             <li class="user-menu">
             <a href="javascript:;">
               <!-- The user image in the navbar-->
-              <img src="${ctx}/static/img/anonymous.png" class="user-image" alt="User Image">
+              <img src="${ctx}/resource/cms/img/anonymous.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">${user.username}</span>
             </a>
@@ -154,9 +154,9 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="${ctx}/static/vendor/jquery/jquery.min.js"></script>
-<script src="${ctx}/static/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="${ctx}/static/vendor/adminlte/js/app.min.js"></script>
+<script src="${ctx}/resource/cms/vendor/jquery/jquery.min.js"></script>
+<script src="${ctx}/resource/cms/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="${ctx}/resource/cms/vendor/adminlte/js/app.min.js"></script>
 <script>
 $(function() {
     var getNotificationCount = function() {

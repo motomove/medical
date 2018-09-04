@@ -38,13 +38,24 @@ spring:
     enabled: false
     cache: false
     request-context-attribute: rc # Name of the RequestContext attribute for all views.
-#    settings:
+    settings:
+      locale: zh_CN
       #datetime_format: yyyy-MM-dd HH:mm:ss
       #date_format: yyyy-MM-dd
       #time_format: HH:mm:ss
       #number_format: 0.######;
       #boolean_format: true,false
 #      template_exception_handler: com.ryan.framework.config.FreemarkerTemplateExceptionHandler
+  messages:
+    cache-seconds: -1
+    basename:
+      - classpath:messages/common/common
+      - classpath:messages/core/core
+      - classpath:messages/corefore/corefore
+      - classpath:messages/ext/ext
+      - classpath:messages/extfore/extfore
+    encoding: utf-8
+
 mybatis:
   type-aliases-package: com.ryan.framework.domain
   mapper-locations:

@@ -5,7 +5,6 @@
 <%@ taglib prefix="fnx" uri="http://java.sun.com/jsp/jstl/functionsx" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="f" uri="http://www.jspxcms.com/tags/form" %>
-<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
@@ -198,78 +197,48 @@
                 <f:hidden name="queryStatus" value="${queryStatus}"/>
                 <div class="btn-toolbar ls-btn-bar">
                     <div class="btn-group">
-                        <shiro:hasPermission name="core:info:create">
                             <button class="btn btn-default" type="button" onclick="location.href='create.do?queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}';"><s:message code="create"/></button>
-                        </shiro:hasPermission>
                     </div>
                     <div class="btn-group">
-                        <shiro:hasPermission name="core:info:copy">
                             <button class="btn btn-default" type="button" onclick="return optSingle('#copy_opt_');"><s:message code="copy"/></button>
-                        </shiro:hasPermission>
-                        <shiro:hasPermission name="core:info:edit">
                             <button class="btn btn-default" type="button" onclick="return optSingle('#edit_opt_');"><s:message code="edit"/></button>
-                        </shiro:hasPermission>
-                        <shiro:hasPermission name="core:info:move_form">
                             <button class="btn btn-default" type="button" onclick="return optMulti(this.form,'move_form.do');"><s:message code="move"/></button>
-                        </shiro:hasPermission>
                     </div>
                     <div class="btn-group">
-                        <shiro:hasPermission name="core:info:logic_delete">
                             <button class="btn btn-default" type="button" onclick="return optMulti(this.form,'logic_delete.do',confirmDelete);"><s:message code="delete"/></button>
-                        </shiro:hasPermission>
-                        <shiro:hasPermission name="core:info:delete">
                             <button class="btn btn-default" type="button" onclick="return optDelete(this.form);"><s:message code="completelyDelete"/></button>
-                        </shiro:hasPermission>
-                        <shiro:hasPermission name="core:info:recall">
                             <button class="btn btn-default" type="button" onclick="return optMulti(this.form,'recall.do');"><s:message code="info.recall"/></button>
-                        </shiro:hasPermission>
                     </div>
                     <div class="btn-group">
-                        <shiro:hasPermission name="core:info:audit_pass">
                             <button class="btn btn-default" type="button" onclick="return optMulti(this.form,'audit_pass.do');"><s:message code="info.auditPass"/></button>
-                        </shiro:hasPermission>
-                        <shiro:hasPermission name="core:info:audit_reject">
                             <button class="btn btn-default" type="button" onclick="return optMulti(this.form,'audit_reject.do');"><s:message code="info.auditReject"/></button>
-                        </shiro:hasPermission>
-                        <shiro:hasPermission name="core:info:audit_return">
                             <button class="btn btn-default" type="button" onclick="return optMulti(this.form,'audit_return.do');"><s:message code="info.auditReturn"/></button>
-                        </shiro:hasPermission>
                     </div>
                     <div class="btn-group">
-                        <shiro:hasPermission name="core:info:site_push_form">
                             <button class="btn btn-default" type="button" onclick="return optMulti(this.form,'site_push_form.do');"><s:message code="info.sitePush"/></button>
-                        </shiro:hasPermission>
-                        <shiro:hasPermission name="core:info:site_push_form">
                             <button class="btn btn-default" type="button" onclick="location.href='site_push_list.do'"><s:message code="info.sitePushList"/></button>
-                        </shiro:hasPermission>
                     </div>
                     <div class="btn-group">
-                        <shiro:hasPermission name="core:info:mass_weixin_form">
                             <button class="btn btn-default" type="button" onclick="return optMulti(this.form,'mass_weixin_form.do');"><s:message code="info.massWeixin"/></button>
-                        </shiro:hasPermission>
                     </div>
                 </div>
                 <ul id="tabs" class="tabs list-unstyled">
-                    <shiro:hasPermission name="core:info:status">
-                        <li<c:if test="${empty queryStatus}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('');$('#searchForm').submit();"><s:message code="info.status.all"/></a></li>
-                        <li<c:if test="${queryStatus eq 'pending'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('pending');$('#searchForm').submit();"><s:message code="info.status.pending"/></a></li>
-                        <li<c:if test="${queryStatus eq 'notpassed'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('notpassed');$('#searchForm').submit();"><s:message code="info.status.notpassed"/></a></li>
-                        <li<c:if test="${queryStatus eq '1'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('1');$('#searchForm').submit();"><s:message code="info.status.1"/></a></li>
-                        <li<c:if test="${queryStatus eq 'F'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('F');$('#searchForm').submit();"><s:message code="info.status.F"/></a></li>
-                        <li<c:if test="${queryStatus eq 'A'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('A');$('#searchForm').submit();"><s:message code="info.status.A"/></a></li>
-                        <li<c:if test="${queryStatus eq 'G'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('G');$('#searchForm').submit();"><s:message code="info.status.G"/></a></li>
-                        <li<c:if test="${queryStatus eq 'B'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('B');$('#searchForm').submit();"><s:message code="info.status.B"/></a></li>
-                        <li<c:if test="${queryStatus eq 'D'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('D');$('#searchForm').submit();"><s:message code="info.status.D"/></a></li>
-                        <li<c:if test="${queryStatus eq 'C'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('C');$('#searchForm').submit();"><s:message code="info.status.C"/></a></li>
-                        <li<c:if test="${queryStatus eq 'E'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('E');$('#searchForm').submit();"><s:message code="info.status.E"/></a></li>
-                        <li<c:if test="${queryStatus eq 'H'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('H');$('#searchForm').submit();"><s:message code="info.status.H"/></a></li>
-                        <%--
-                        <li<c:if test="${queryStatus eq 'Z'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('Z');$('#searchForm').submit();"><s:message code="info.status.Z"/></a></li>
-                         --%>
-                        <shiro:hasPermission name="core:info:recall">
-                            <li<c:if test="${queryStatus eq 'X'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('X');$('#searchForm').submit();"><s:message code="info.status.X"/></a></li>
-                        </shiro:hasPermission>
-                    </shiro:hasPermission>
+                    <li<c:if test="${empty queryStatus}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('');$('#searchForm').submit();"><s:message code="info.status.all"/></a></li>
+                    <li<c:if test="${queryStatus eq 'pending'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('pending');$('#searchForm').submit();"><s:message code="info.status.pending"/></a></li>
+                    <li<c:if test="${queryStatus eq 'notpassed'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('notpassed');$('#searchForm').submit();"><s:message code="info.status.notpassed"/></a></li>
+                    <li<c:if test="${queryStatus eq '1'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('1');$('#searchForm').submit();"><s:message code="info.status.1"/></a></li>
+                    <li<c:if test="${queryStatus eq 'F'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('F');$('#searchForm').submit();"><s:message code="info.status.F"/></a></li>
+                    <li<c:if test="${queryStatus eq 'A'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('A');$('#searchForm').submit();"><s:message code="info.status.A"/></a></li>
+                    <li<c:if test="${queryStatus eq 'G'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('G');$('#searchForm').submit();"><s:message code="info.status.G"/></a></li>
+                    <li<c:if test="${queryStatus eq 'B'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('B');$('#searchForm').submit();"><s:message code="info.status.B"/></a></li>
+                    <li<c:if test="${queryStatus eq 'D'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('D');$('#searchForm').submit();"><s:message code="info.status.D"/></a></li>
+                    <li<c:if test="${queryStatus eq 'C'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('C');$('#searchForm').submit();"><s:message code="info.status.C"/></a></li>
+                    <li<c:if test="${queryStatus eq 'E'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('E');$('#searchForm').submit();"><s:message code="info.status.E"/></a></li>
+                    <li<c:if test="${queryStatus eq 'H'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('H');$('#searchForm').submit();"><s:message code="info.status.H"/></a></li>
+                    <%--
+                     <li<c:if test="${queryStatus eq 'Z'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('Z');$('#searchForm').submit();"><s:message code="info.status.Z"/></a></li>
+                     --%>
+                    <li<c:if test="${queryStatus eq 'X'}"> class="active"</c:if>><a href="javascript:void(0);" onclick="$('#queryStatus').val('X');$('#searchForm').submit();"><s:message code="info.status.X"/></a></li>
                 </ul>
                 <table id="pagedTable" class="table table-condensed table-bordered table-hover ls-tb">
                     <thead id="sortHead" pagesort="<c:out value='${page_sort[0]}' />" pagedir="${page_sort_dir[0]}" pageurl="list.do?page_sort={0}&page_sort_dir={1}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstringnosort}">
@@ -286,16 +255,11 @@
                     </thead>
                     <tbody>
                     <c:forEach var="bean" varStatus="status" items="${pagedList.content}">
-                        <tr<shiro:hasPermission name="core:info:edit"> ondblclick="location.href=$('#edit_opt_${bean.id}').attr('href');"</shiro:hasPermission>>
+                        <tr ondblclick="location.href=$('#edit_opt_${bean.id}').attr('href');">
                             <td><input type="checkbox" name="ids" value="${bean.id}"/></td>
                             <td align="center">
-                                <shiro:hasPermission name="core:info:copy">
                                     <a id="copy_opt_${bean.id}" href="create.do?id=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" class="ls-opt"><s:message code="copy"/></a>
-                                </shiro:hasPermission>
-                                <shiro:hasPermission name="core:info:edit">
                                     <a id="edit_opt_${bean.id}" href="edit.do?id=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&position=${pagedList.number*pagedList.size+status.index}&${searchstring}" class="ls-opt"><s:message code="edit"/></a>
-                                </shiro:hasPermission>
-                                <shiro:hasPermission name="core:info:logic_delete">
                                     <c:choose>
                                         <c:when test="${bean.auditPerm}">
                                             <a href="logic_delete.do?ids=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" onclick="return confirmDelete();" class="ls-opt"><s:message code="delete"/></a>
@@ -304,8 +268,6 @@
                                             <span class="disabled"><s:message code="delete"/></span>
                                         </c:otherwise>
                                     </c:choose>
-                                </shiro:hasPermission>
-                                <shiro:hasPermission name="core:info:delete">
                                     <c:choose>
                                         <c:when test="${bean.auditPerm}">
                                             <a href="delete.do?ids=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" onclick="return confirmDelete();" class="ls-opt"><s:message code="completelyDelete"/></a>
@@ -314,7 +276,6 @@
                                             <span class="ls-opt-disabled"><s:message code="completelyDelete"/></span>
                                         </c:otherwise>
                                     </c:choose>
-                                </shiro:hasPermission>
                             </td>
                             <td><c:out value="${bean.id}"/></td>
                             <td>
@@ -357,9 +318,7 @@
                                 <div>
                                     html:
                                     <c:set var="makeHtmlPerm" value="${false}"/>
-                                    <shiro:hasPermission name="core:info:make_html">
                                         <c:set var="makeHtmlPerm" value="${true}"/>
-                                    </shiro:hasPermission>
                                     <c:choose>
                                         <c:when test="${makeHtmlPerm}">
                                             <a href="make_html.do?ids=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" class="ls-opt" style="<c:if test="${bean.htmlStatus eq '2' || bean.htmlStatus eq '3' || bean.htmlStatus eq '4'}">color:red;</c:if>">

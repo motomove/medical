@@ -82,6 +82,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
         <!-- 格式化对象，方便输出日志 -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -111,9 +115,9 @@
             <version>1.9</version>
         </dependency>
         <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
         </dependency>
         <dependency>
             <groupId>commons-fileupload</groupId>
@@ -277,6 +281,20 @@
             <artifactId>ghostdriver</artifactId>
             <version>2.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.17</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.htmlparser</groupId>
+            <artifactId>htmllexer</artifactId>
+            <version>2.1</version>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -315,6 +333,24 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
+                <excludes>
+                    <exclude>static/resource/cms/**/*.ttf</exclude>
+                    <exclude>static/resource/cms/**/*.eot</exclude>
+                    <exclude>static/resource/cms/**/*.svg</exclude>
+                    <exclude>static/resource/cms/**/*.woff</exclude>
+                    <exclude>static/resource/cms/**/*.woff2</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>static/resource/cms/**/*.ttf</include>
+                    <include>static/resource/cms/**/*.eot</include>
+                    <include>static/resource/cms/**/*.svg</include>
+                    <include>static/resource/cms/**/*.woff</include>
+                    <include>static/resource/cms/**/*.woff2</include>
+                </includes>
             </resource>
         </resources>
         <!--<resources>

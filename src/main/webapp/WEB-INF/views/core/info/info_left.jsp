@@ -69,9 +69,9 @@ body{overflow-x:auto;}
 <body class="skin-blue content-body">
 <div style="padding:12px 0 0 12px;">
 	<select class="form-control input-sm" id="queryNodeType">
-		<option value="0"><s:message code="info.queryNodeType.0"/></option>
+		<%--<option value="0"><s:message code="info.queryNodeType.0"/></option>
 		<option value="1"><s:message code="info.queryNodeType.1"/></option>
-		<option value="2"><s:message code="info.queryNodeType.2"/></option>
+		<option value="2"><s:message code="info.queryNodeType.2"/></option>--%>
 	</select>
 	<%-- <label for="showChildren"><input id="showChildren" type="checkbox" checked="checked"/><s:message code="info.showChildren"/></label> --%>
 </div>

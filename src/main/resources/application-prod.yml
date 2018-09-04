@@ -17,9 +17,9 @@ spring:
 #    username: tyxlby1009
 #    password: whaty123
 #    driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:mysql://192.168.148.29:33306/xl_data?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true
-    username: xl_data
-    password: lLJVmogEmu5UwKXJ
+    url: jdbc:mysql://xxx/xl_data?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true
+    username: xxx
+    password: xxx
     driver-class-name: com.mysql.jdbc.Driver
   freemarker:
     cache: false
